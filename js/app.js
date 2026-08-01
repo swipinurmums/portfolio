@@ -109,12 +109,12 @@ function renderContact(contact) {
   const section = document.createElement("footer");
   section.className = "contact";
 
-const measurements = document.createElement("p");
-measurements.className = "contact__measurements";
-measurements.textContent =
-  "188CM · 94CM CHEST · 76CM WAIST · 90CM HIPS · BROWN HAIR · BROWN EYES · UK10 · 22";
+  const measurements = document.createElement("p");
+  measurements.className = "contact__measurements";
+  measurements.textContent =
+    "188CM · 94CM CHEST · 76CM WAIST · 90CM HIPS · BROWN HAIR · BROWN EYES · UK10 · 22";
 
-section.appendChild(measurements);
+  section.appendChild(measurements);
 
   const name = document.createElement("a");
   name.className = "contact__name";
