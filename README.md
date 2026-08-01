@@ -1,48 +1,56 @@
-# Aron Belle — Modelling Portfolio
+# Aron Belle Portfolio V2
 
-This package includes the current portfolio code and all supplied photographs,
-optimised as WebP files for the web.
+A clean, mobile-first rebuild using bespoke layouts for each shoot.
 
-## Before publishing
+## Included order
 
-Edit `data/portfolio.json` and replace:
+1. Runway
+2. World Cup
+3. Esmee
+4. Timmy
+5. Tux
+6. Digis
+7. Contact
 
-```json
-"email": "hello@example.com",
-"instagram": "https://www.instagram.com/"
-```
+## Specific art direction included
 
-with your real details.
+- `runway-02` is the opening hero.
+- `world-cup-03` is tightly cropped to the face and upper shoulders on the
+  homepage, while the fullscreen viewer shows the complete original.
+- `world-cup-05` is included before the final World Cup landscape photograph.
+- `esmee-03` is removed.
+- `esmee-02` is a large standalone image.
+- `esmee-06` is a large focal image with equal site margins.
+- `timmy-02` keeps its crop size but is aligned to the top.
+- Digis are at the bottom.
 
-## Install into the existing GitHub repository
+## Install
 
-1. Back up the current repository folder.
-2. Replace its contents with everything inside this folder.
-3. Open GitHub Desktop.
-4. Review the changes.
-5. Commit with a message such as:
-   `Add real portfolio photography`
-6. Push to `main`.
-7. Wait for GitHub Pages to deploy.
+Replace the contents of the existing GitHub repository with everything inside
+this folder, then commit and push through GitHub Desktop.
 
-## Images
+## Contact details
 
-The original images were converted to WebP and reduced to a maximum dimension
-of 1900px. This keeps the site much faster on mobile while preserving good
-display quality.
-
-The photographs are organised permanently by shoot:
+Before publishing, edit:
 
 ```text
-images/
-├── esmee/
-├── world-cup/
-├── timmy/
-├── runway/
-├── digis/
-├── tux/
-└── misc/
+data/portfolio.json
 ```
 
-The site still uses the current `layout` JSON format, so it is compatible with
-the included JavaScript.
+Replace the placeholder email and Instagram URL.
+
+## Image order and crops
+
+Image order and crop positions live in:
+
+```text
+data/portfolio.json
+```
+
+Most layout sizing lives in:
+
+```text
+css/layouts.css
+```
+
+The fullscreen viewer deliberately ignores homepage crops.

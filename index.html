@@ -14,10 +14,8 @@
 
   <title>Aron Belle</title>
 
-  <link rel="stylesheet" href="css/variables.css" />
-  <link rel="stylesheet" href="css/base.css" />
-  <link rel="stylesheet" href="css/layout.css" />
-  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/layouts.css" />
   <link rel="stylesheet" href="css/animations.css" />
 </head>
 <body>
@@ -28,28 +26,25 @@
   <div class="grain" aria-hidden="true"></div>
 
   <header class="site-mark">
-    <a href="#top" aria-label="Back to the beginning">AB</a>
+    <a href="#top" aria-label="Return to the beginning">AB</a>
   </header>
 
-  <main id="top" class="portfolio" aria-label="Modelling portfolio">
-    <div id="portfolio-root"></div>
+  <main id="top">
+    <div id="portfolio"></div>
   </main>
 
   <div class="viewer" aria-hidden="true">
     <div class="viewer__backdrop"></div>
     <div class="viewer__stage">
       <img class="viewer__image" src="" alt="" />
-      <button class="viewer__zone viewer__zone--left" aria-label="Previous image"></button>
-      <button class="viewer__zone viewer__zone--centre" aria-label="Close image"></button>
-      <button class="viewer__zone viewer__zone--right" aria-label="Next image"></button>
+      <button class="viewer__zone viewer__zone--previous" aria-label="Previous image"></button>
+      <button class="viewer__zone viewer__zone--close" aria-label="Close image"></button>
+      <button class="viewer__zone viewer__zone--next" aria-label="Next image"></button>
     </div>
     <div class="viewer__counter" aria-live="polite"></div>
   </div>
 
-  <script src="js/config.js"></script>
-  <script src="js/gallery.js"></script>
-  <script src="js/lightbox.js"></script>
-  <script src="js/animations.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/viewer.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>

@@ -1,0 +1,284 @@
+.chapter-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--item-gap);
+  width: 100%;
+  padding-inline: var(--edge);
+}
+
+/* RUNWAY */
+.runway-hero {
+  padding: var(--edge);
+  padding-top: var(--edge);
+}
+
+.runway-hero .shot {
+  height: calc(100svh - (var(--edge) * 2));
+  min-height: 560px;
+}
+
+.runway-pair {
+  margin-top: clamp(58px, 17vw, 96px);
+}
+
+.runway-pair .shot:first-child {
+  grid-column: 1 / span 8;
+  aspect-ratio: 3 / 4;
+}
+
+.runway-pair .shot:last-child {
+  grid-column: 9 / -1;
+  aspect-ratio: 3 / 4;
+  margin-top: 24vw;
+}
+
+.runway-wide {
+  margin-top: clamp(66px, 20vw, 110px);
+}
+
+.runway-wide .shot {
+  grid-column: 1 / -1;
+  aspect-ratio: 3 / 2;
+}
+
+.runway-closing {
+  margin-top: clamp(58px, 17vw, 96px);
+}
+
+.runway-closing .shot:first-child,
+.runway-closing .shot:last-child {
+  grid-column: span 6;
+  aspect-ratio: 3 / 4;
+}
+
+.runway-closing .shot:last-child {
+  margin-top: 12vw;
+}
+
+/* WORLD CUP */
+.world-cup-headshot {
+  margin-top: clamp(76px, 23vw, 130px);
+}
+
+.world-cup-headshot .shot {
+  grid-column: 1 / -1;
+  height: min(78svh, 760px);
+}
+
+.crop-world-cup-headshot img {
+  --scale: 2.9;
+  --hover-scale: 2.94;
+  --position: 50% 11%;
+}
+
+.world-cup-second {
+  margin-top: clamp(58px, 17vw, 92px);
+}
+
+.world-cup-second .shot {
+  grid-column: 4 / -1;
+  aspect-ratio: 3 / 4;
+}
+
+.world-cup-pair {
+  margin-top: clamp(58px, 17vw, 96px);
+}
+
+.world-cup-pair .shot {
+  grid-column: span 6;
+  aspect-ratio: 3 / 4;
+}
+
+.world-cup-pair .shot:last-child {
+  margin-top: 12vw;
+}
+
+.world-cup-group,
+.world-cup-landscape {
+  margin-top: clamp(66px, 20vw, 112px);
+}
+
+.world-cup-group .shot,
+.world-cup-landscape .shot {
+  grid-column: 1 / -1;
+  aspect-ratio: 3 / 2;
+}
+
+/* ESMEE */
+.esmee-feature {
+  padding-inline: var(--edge);
+}
+
+.esmee-feature .shot {
+  height: min(88svh, 900px);
+  min-height: 560px;
+}
+
+.esmee-full {
+  margin-top: clamp(64px, 19vw, 108px);
+}
+
+.esmee-full .shot {
+  grid-column: 2 / span 10;
+  aspect-ratio: 3 / 4;
+}
+
+.esmee-close {
+  margin-top: clamp(70px, 21vw, 116px);
+}
+
+.esmee-close .shot {
+  grid-column: 1 / -1;
+  aspect-ratio: 4 / 5;
+}
+
+.esmee-closing {
+  margin-top: clamp(58px, 17vw, 96px);
+}
+
+.esmee-closing .shot:first-child {
+  grid-column: 1 / span 7;
+  aspect-ratio: 3 / 4;
+}
+
+.esmee-closing .shot:last-child {
+  grid-column: 8 / -1;
+  aspect-ratio: 3 / 4;
+  margin-top: 26vw;
+}
+
+/* TIMMY */
+.timmy-grid {
+  margin-top: 0;
+}
+
+.timmy-grid .shot:first-child {
+  grid-column: 1 / span 7;
+  aspect-ratio: 3 / 4;
+}
+
+.timmy-grid .shot:last-child {
+  grid-column: 8 / -1;
+  aspect-ratio: 3 / 4;
+  margin-top: 20vw;
+}
+
+/* TUX */
+.tux-grid .shot:first-child {
+  grid-column: 1 / span 7;
+  aspect-ratio: 3 / 4;
+}
+
+.tux-grid .shot:last-child {
+  grid-column: 8 / -1;
+  aspect-ratio: 3 / 4;
+  margin-top: 22vw;
+}
+
+/* DIGIS */
+.digis-grid .shot {
+  grid-column: span 6;
+  aspect-ratio: 3 / 4;
+}
+
+@media (min-width: 760px) {
+  .runway-hero {
+    max-width: 1500px;
+    margin-inline: auto;
+  }
+
+  .runway-hero .shot {
+    height: calc(100vh - (var(--edge) * 2));
+  }
+
+  .chapter-grid {
+    max-width: 1500px;
+    margin-inline: auto;
+  }
+
+  .runway-pair .shot:first-child {
+    grid-column: 2 / span 6;
+  }
+
+  .runway-pair .shot:last-child {
+    grid-column: 9 / span 3;
+    margin-top: 9vw;
+  }
+
+  .runway-wide .shot,
+  .world-cup-group .shot,
+  .world-cup-landscape .shot {
+    grid-column: 2 / span 10;
+  }
+
+  .runway-closing .shot:first-child {
+    grid-column: 2 / span 5;
+  }
+
+  .runway-closing .shot:last-child {
+    grid-column: 7 / span 5;
+    margin-top: 7vw;
+  }
+
+  .world-cup-headshot .shot {
+    grid-column: 2 / span 10;
+    height: min(82vh, 900px);
+  }
+
+  .crop-world-cup-headshot img {
+    --scale: 2.25;
+    --hover-scale: 2.29;
+    --position: 50% 12%;
+  }
+
+  .world-cup-second .shot {
+    grid-column: 7 / span 5;
+  }
+
+  .world-cup-pair .shot:first-child {
+    grid-column: 2 / span 5;
+  }
+
+  .world-cup-pair .shot:last-child {
+    grid-column: 7 / span 5;
+    margin-top: 7vw;
+  }
+
+  .esmee-feature {
+    max-width: 1500px;
+    margin-inline: auto;
+  }
+
+  .esmee-feature .shot {
+    height: min(90vh, 1080px);
+  }
+
+  .esmee-full .shot {
+    grid-column: 3 / span 8;
+  }
+
+  .esmee-close .shot {
+    grid-column: 2 / span 10;
+  }
+
+  .esmee-closing .shot:first-child,
+  .timmy-grid .shot:first-child,
+  .tux-grid .shot:first-child {
+    grid-column: 2 / span 6;
+  }
+
+  .esmee-closing .shot:last-child,
+  .timmy-grid .shot:last-child,
+  .tux-grid .shot:last-child {
+    grid-column: 9 / span 3;
+    margin-top: 9vw;
+  }
+
+  .digis-grid .shot:first-child {
+    grid-column: 2 / span 5;
+  }
+
+  .digis-grid .shot:last-child {
+    grid-column: 7 / span 5;
+  }
+}
