@@ -10,6 +10,8 @@ let viewerImages = [];
 let viewerIndex = 0;
 let touchStartX = 0;
 let touchStartY = 0;
+let isMultiTouchGesture = false;
+let suppressNavigationUntil = 0;
 
 function configureViewer(images) {
   viewerImages = images;
@@ -45,6 +47,8 @@ function renderViewerImage({ animate = false } = {}) {
 }
 
 function openViewer(index) {
+  isMultiTouchGesture = false;
+  suppressNavigationUntil = 0;
   viewerIndex = index;
 
   /*
@@ -83,16 +87,54 @@ function previousViewerImage() {
   renderViewerImage({ animate: true });
 }
 
-previousZone.addEventListener("click", previousViewerImage);
-nextZone.addEventListener("click", nextViewerImage);
-closeZone.addEventListener("click", closeViewer);
-viewerBackdrop.addEventListener("click", closeViewer);
+previousZone.addEventListener("click", event => {
+  if (Date.now() < suppressNavigationUntil) {
+    event.preventDefault();
+    return;
+  }
+
+  previousViewerImage();
+});
+
+nextZone.addEventListener("click", event => {
+  if (Date.now() < suppressNavigationUntil) {
+    event.preventDefault();
+    return;
+  }
+
+  nextViewerImage();
+});
+
+closeZone.addEventListener("click", event => {
+  if (Date.now() < suppressNavigationUntil) {
+    event.preventDefault();
+    return;
+  }
+
+  closeViewer();
+});
+
+viewerBackdrop.addEventListener("click", event => {
+  if (Date.now() < suppressNavigationUntil) {
+    event.preventDefault();
+    return;
+  }
+
+  closeViewer();
+});
 
 viewer.addEventListener(
   "touchstart",
   event => {
-    const touch = event.changedTouches[0];
+    if (event.touches.length > 1) {
+      isMultiTouchGesture = true;
+      suppressNavigationUntil = Date.now() + 500;
+      return;
+    }
 
+    isMultiTouchGesture = false;
+
+    const touch = event.touches[0];
     touchStartX = touch.clientX;
     touchStartY = touch.clientY;
   },
@@ -100,10 +142,36 @@ viewer.addEventListener(
 );
 
 viewer.addEventListener(
+  "touchmove",
+  event => {
+    if (event.touches.length > 1) {
+      isMultiTouchGesture = true;
+      suppressNavigationUntil = Date.now() + 500;
+    }
+  },
+  { passive: true }
+);
+
+viewer.addEventListener(
   "touchend",
   event => {
-    const touch = event.changedTouches[0];
+    if (isMultiTouchGesture) {
+      /*
+       * A browser may generate a click immediately after the final
+       * finger is lifted, so temporarily block all navigation zones.
+       */
+      suppressNavigationUntil = Date.now() + 500;
 
+      if (event.touches.length === 0) {
+        window.setTimeout(() => {
+          isMultiTouchGesture = false;
+        }, 500);
+      }
+
+      return;
+    }
+
+    const touch = event.changedTouches[0];
     const deltaX = touch.clientX - touchStartX;
     const deltaY = touch.clientY - touchStartY;
 
@@ -116,7 +184,17 @@ viewer.addEventListener(
       } else {
         previousViewerImage();
       }
+
+      suppressNavigationUntil = Date.now() + 300;
     }
+  },
+  { passive: true }
+);
+viewer.addEventListener(
+  "touchcancel",
+  () => {
+    isMultiTouchGesture = false;
+    suppressNavigationUntil = Date.now() + 500;
   },
   { passive: true }
 );
