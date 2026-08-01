@@ -1,5 +1,6 @@
 const loader = document.querySelector(".loader");
 const portfolioRoot = document.querySelector("#portfolio");
+const desktopCursor = document.querySelector(".desktop-cursor");
 
 let allImages = [];
 
@@ -27,10 +28,11 @@ function createShot(image, extraClass = "") {
   if (index === 0) {
     img.fetchPriority = "high";
     button.classList.remove("reveal");
+    button.classList.add("hero-shot");
   }
 
   button.appendChild(img);
-  button.addEventListener("click", () => openViewer(index));
+  button.addEventListener("click", () => openViewer(index, button));
 
   return button;
 }
@@ -104,15 +106,15 @@ function renderPair(section, className) {
 }
 
 function renderContact(contact) {
-  const section = document.createElement("section");
+  const section = document.createElement("footer");
   section.className = "contact";
 
-  if (contact.email) {
-    const email = document.createElement("a");
-    email.href = `mailto:${contact.email}`;
-    email.textContent = contact.email;
-    section.appendChild(email);
-  }
+  const name = document.createElement("a");
+  name.className = "contact__name";
+  name.href = "#top";
+  name.textContent = "Aron Belle";
+  name.setAttribute("aria-label", "Aron Belle — return to the beginning");
+  section.appendChild(name);
 
   if (contact.instagram) {
     const instagram = document.createElement("a");
@@ -123,19 +125,14 @@ function renderContact(contact) {
     section.appendChild(instagram);
   }
 
-  return section;
-}
+  if (contact.email) {
+    const email = document.createElement("a");
+    email.href = `mailto:${contact.email}`;
+    email.textContent = "Email";
+    email.setAttribute("aria-label", contact.email);
+    section.appendChild(email);
+  }
 
-function renderLoopReturn() {
-  const section = document.createElement("section");
-  section.className = "loop-return";
-
-  const link = document.createElement("a");
-  link.href = "#top";
-  link.textContent = "AB";
-  link.setAttribute("aria-label", "Return to the beginning");
-
-  section.appendChild(link);
   return section;
 }
 
@@ -154,9 +151,41 @@ function initialiseRevealAnimations() {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: .12 });
+  }, {
+    threshold: .12,
+    rootMargin: "0px 0px -5% 0px"
+  });
 
   items.forEach(item => observer.observe(item));
+}
+
+function initialiseDesktopCursor() {
+  if (!desktopCursor || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    return;
+  }
+
+  window.addEventListener("pointermove", event => {
+    desktopCursor.style.left = `${event.clientX}px`;
+    desktopCursor.style.top = `${event.clientY}px`;
+  });
+
+  document.querySelectorAll(".shot").forEach(shot => {
+    shot.addEventListener("pointerenter", () => {
+      desktopCursor.classList.add("is-over-image");
+    });
+
+    shot.addEventListener("pointerleave", () => {
+      desktopCursor.classList.remove("is-over-image");
+    });
+  });
+
+  document.documentElement.addEventListener("mouseleave", () => {
+    desktopCursor.style.opacity = "0";
+  });
+
+  document.documentElement.addEventListener("mouseenter", () => {
+    desktopCursor.style.opacity = "1";
+  });
 }
 
 async function start() {
@@ -183,11 +212,15 @@ async function start() {
     });
 
     feed.appendChild(renderContact(data.contact));
-    feed.appendChild(renderLoopReturn());
 
     portfolioRoot.replaceChildren(feed);
     configureViewer(allImages);
     initialiseRevealAnimations();
+    initialiseDesktopCursor();
+
+    requestAnimationFrame(() => {
+      document.body.classList.add("is-ready");
+    });
   } catch (error) {
     console.error(error);
     portfolioRoot.innerHTML = `
@@ -196,7 +229,7 @@ async function start() {
       </div>
     `;
   } finally {
-    window.setTimeout(() => loader.classList.add("is-hidden"), 220);
+    window.setTimeout(() => loader.classList.add("is-hidden"), 1050);
   }
 }
 

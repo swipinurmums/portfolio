@@ -8,11 +8,86 @@ const nextZone = document.querySelector(".viewer__zone--next");
 
 let viewerImages = [];
 let viewerIndex = 0;
+let viewerSource = null;
 let touchStartX = 0;
 let touchStartY = 0;
 
 function configureViewer(images) {
   viewerImages = images;
+}
+
+function getContainedRect(image, naturalWidth, naturalHeight) {
+  const viewportWidth = window.innerWidth - 32;
+  const viewportHeight = window.innerHeight - 96;
+  const ratio = Math.min(
+    viewportWidth / naturalWidth,
+    viewportHeight / naturalHeight
+  );
+
+  const width = naturalWidth * ratio;
+  const height = naturalHeight * ratio;
+
+  return {
+    left: (window.innerWidth - width) / 2,
+    top: (window.innerHeight - height) / 2,
+    width,
+    height
+  };
+}
+
+function animateIntoViewer(sourceButton, image) {
+  const sourceImage = sourceButton?.querySelector("img");
+  if (!sourceImage || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    viewer.classList.add("is-open");
+    return;
+  }
+
+  const sourceRect = sourceButton.getBoundingClientRect();
+  const transitionImage = sourceImage.cloneNode();
+  transitionImage.className = "viewer-transition-image";
+  transitionImage.style.left = `${sourceRect.left}px`;
+  transitionImage.style.top = `${sourceRect.top}px`;
+  transitionImage.style.width = `${sourceRect.width}px`;
+  transitionImage.style.height = `${sourceRect.height}px`;
+  transitionImage.style.objectPosition =
+    getComputedStyle(sourceImage).objectPosition || "50% 50%";
+
+  document.body.appendChild(transitionImage);
+  viewer.classList.add("is-open");
+  viewerImage.style.opacity = "0";
+
+  const preload = new Image();
+  preload.src = image.src;
+
+  const run = () => {
+    const target = getContainedRect(
+      preload.naturalWidth || sourceImage.naturalWidth || sourceRect.width,
+      preload.naturalHeight || sourceImage.naturalHeight || sourceRect.height
+    );
+
+    requestAnimationFrame(() => {
+      transitionImage.style.left = `${target.left}px`;
+      transitionImage.style.top = `${target.top}px`;
+      transitionImage.style.width = `${target.width}px`;
+      transitionImage.style.height = `${target.height}px`;
+      transitionImage.style.objectPosition = "50% 50%";
+    });
+
+    window.setTimeout(() => {
+      viewerImage.style.opacity = "";
+      transitionImage.style.opacity = "0";
+
+      window.setTimeout(() => {
+        transitionImage.remove();
+      }, 180);
+    }, 470);
+  };
+
+  if (preload.complete) {
+    run();
+  } else {
+    preload.onload = run;
+  }
 }
 
 function renderViewerImage() {
@@ -38,27 +113,32 @@ function renderViewerImage() {
   }, 80);
 }
 
-function openViewer(index) {
+function openViewer(index, sourceButton = null) {
   viewerIndex = index;
+  viewerSource = sourceButton;
   renderViewerImage();
-  viewer.classList.add("is-open");
   viewer.setAttribute("aria-hidden", "false");
   document.body.classList.add("is-locked");
+
+  animateIntoViewer(sourceButton, viewerImages[index]);
 }
 
 function closeViewer() {
   viewer.classList.remove("is-open");
   viewer.setAttribute("aria-hidden", "true");
   document.body.classList.remove("is-locked");
+  viewerSource = null;
 }
 
 function nextViewerImage() {
   viewerIndex = (viewerIndex + 1) % viewerImages.length;
+  viewerSource = null;
   renderViewerImage();
 }
 
 function previousViewerImage() {
   viewerIndex = (viewerIndex - 1 + viewerImages.length) % viewerImages.length;
+  viewerSource = null;
   renderViewerImage();
 }
 
