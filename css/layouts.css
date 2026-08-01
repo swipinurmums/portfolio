@@ -70,7 +70,7 @@
   --hover-scale: 2.94;
 
   /* Controls where the zoom expands from */
-  --origin: 22% 8%;
+  --origin: 16% 8%;
 
   /* Keeps the original image aligned normally */
   --position: 50% 50%;
@@ -234,7 +234,7 @@
   .crop-world-cup-headshot img {
     --scale: 2.25;
     --hover-scale: 2.29;
-    --origin: 22% 8%;
+    --origin: 16% 8%;
     --position: 50% 50%;
   }
 
