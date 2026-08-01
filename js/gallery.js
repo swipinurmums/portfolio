@@ -2,7 +2,9 @@ let portfolioImages = [];
 
 const layoutImageLimits = {
   hero: 1,
+  feature: 1,
   "single-wide": 1,
+  "single-large-left": 1,
   "single-inset-left": 1,
   "single-inset-right": 1,
   "pair-staggered": 2,
@@ -14,11 +16,13 @@ const layoutImageLimits = {
 
 function createShot(image, globalIndex, isFirstShoot) {
   const button = document.createElement("button");
+
   button.className = [
     "shot",
     isFirstShoot ? "" : "reveal",
     image.className || ""
   ].filter(Boolean).join(" ");
+
   button.type = "button";
   button.dataset.index = String(globalIndex);
   button.setAttribute("aria-label", `Open image ${globalIndex + 1}`);

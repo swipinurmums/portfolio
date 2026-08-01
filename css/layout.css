@@ -31,6 +31,19 @@
   min-height: 560px;
 }
 
+/* Large focal image with normal site margins */
+.layout--feature .shot {
+  grid-column: 1 / -1;
+  height: calc(100svh - (var(--edge) * 2));
+  min-height: 560px;
+}
+
+/* Large single portrait, slightly left aligned */
+.layout--single-large-left .shot {
+  grid-column: 1 / span 10;
+  aspect-ratio: 3 / 4;
+}
+
 .layout--single-wide .shot {
   grid-column: 2 / span 10;
   aspect-ratio: 4 / 5;
@@ -193,4 +206,13 @@
     max-width: 1500px;
     margin-inline: auto;
   }
+  .layout--feature .shot {
+  grid-column: 1 / -1;
+  height: calc(100vh - (var(--edge) * 2));
 }
+
+.layout--single-large-left .shot {
+  grid-column: 2 / span 8;
+}
+}
+

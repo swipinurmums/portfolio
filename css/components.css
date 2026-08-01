@@ -63,6 +63,22 @@
   transition: transform 1.1s var(--ease);
 }
 
+/* Homepage-only crop for the opening World Cup portrait */
+.shot--world-cup-headshot img {
+  transform: scale(2.35);
+  object-position: 50% 17%;
+}
+
+.shot--world-cup-headshot:active img {
+  transform: scale(2.4);
+}
+
+@media (hover: hover) {
+  .shot--world-cup-headshot:hover img {
+    transform: scale(2.4);
+  }
+}
+
 .shot--close-portrait img {
   transform: scale(1.65);
   object-position: 50% 23%;

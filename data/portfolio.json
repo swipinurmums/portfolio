@@ -10,12 +10,12 @@
   "shoots": [
   {
     "id": "world-cup-opening",
-    "layout": "single-wide",
+    "layout": "hero",
     "images": [
       {
         "src": "images/world-cup/world-cup-03.webp",
         "alt": "Close football lifestyle portrait",
-        "className": "shot--close-portrait"
+        "className": "shot--world-cup-headshot"
       }
     ]
   },
@@ -65,83 +65,12 @@
   },
 
   {
-    "id": "esmee-opening",
-    "layout": "hero",
-    "images": [
-      {
-        "src": "images/esmee/esmee-06.webp",
-        "alt": "Editorial fashion portrait outdoors",
-        "position": "50% 35%"
-      }
-    ]
-  },
-  {
-    "id": "esmee-full-length",
-    "layout": "single-wide",
-    "images": [
-      {
-        "src": "images/esmee/esmee-09.webp",
-        "alt": "Full-length location fashion portrait"
-      }
-    ]
-  },
-  {
-    "id": "esmee-pair",
-    "layout": "pair-staggered",
-    "images": [
-      {
-        "src": "images/esmee/esmee-02.webp",
-        "alt": "Close editorial portrait"
-      },
-      {
-        "src": "images/esmee/esmee-03.webp",
-        "alt": "Full-length portrait beside an ornate gate"
-      }
-    ]
-  },
-  {
-    "id": "esmee-inset-left",
-    "layout": "single-inset-left",
-    "images": [
-      {
-        "src": "images/esmee/esmee-01.webp",
-        "alt": "Location fashion portrait"
-      }
-    ]
-  },
-  {
-    "id": "esmee-inset-right",
-    "layout": "single-inset-right",
-    "images": [
-      {
-        "src": "images/esmee/esmee-04.webp",
-        "alt": "Editorial fashion portrait"
-      }
-    ]
-  },
-
-  {
-    "id": "timmy-pair",
-    "layout": "pair-staggered",
-    "images": [
-      {
-        "src": "images/timmy/timmy-01.webp",
-        "alt": "Urban fashion portrait"
-      },
-      {
-        "src": "images/timmy/timmy-02.webp",
-        "alt": "City location portrait"
-      }
-    ]
-  },
-
-  {
     "id": "runway-opening",
-    "layout": "hero",
+    "layout": "feature",
     "images": [
       {
         "src": "images/runway/runway-02.webp",
-        "alt": "Full-screen runway fashion photograph",
+        "alt": "Runway fashion photograph",
         "position": "50% 20%"
       }
     ]
@@ -181,6 +110,73 @@
       {
         "src": "images/runway/runway-trio.webp",
         "alt": "Runway group photograph"
+      }
+    ]
+  },
+
+  {
+    "id": "esmee-opening",
+    "layout": "feature",
+    "images": [
+      {
+        "src": "images/esmee/esmee-06.webp",
+        "alt": "Editorial fashion portrait outdoors",
+        "position": "50% 35%"
+      }
+    ]
+  },
+  {
+    "id": "esmee-full-length",
+    "layout": "single-wide",
+    "images": [
+      {
+        "src": "images/esmee/esmee-09.webp",
+        "alt": "Full-length location fashion portrait"
+      }
+    ]
+  },
+  {
+    "id": "esmee-close-portrait",
+    "layout": "single-large-left",
+    "images": [
+      {
+        "src": "images/esmee/esmee-02.webp",
+        "alt": "Close editorial portrait"
+      }
+    ]
+  },
+  {
+    "id": "esmee-inset-left",
+    "layout": "single-inset-left",
+    "images": [
+      {
+        "src": "images/esmee/esmee-01.webp",
+        "alt": "Location fashion portrait"
+      }
+    ]
+  },
+  {
+    "id": "esmee-inset-right",
+    "layout": "single-inset-right",
+    "images": [
+      {
+        "src": "images/esmee/esmee-04.webp",
+        "alt": "Editorial fashion portrait"
+      }
+    ]
+  },
+
+  {
+    "id": "timmy-pair",
+    "layout": "pair-staggered",
+    "images": [
+      {
+        "src": "images/timmy/timmy-01.webp",
+        "alt": "Urban fashion portrait"
+      },
+      {
+        "src": "images/timmy/timmy-02.webp",
+        "alt": "City location portrait"
       }
     ]
   },
