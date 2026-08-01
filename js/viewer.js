@@ -16,9 +16,10 @@ function configureViewer(images) {
   viewerImages = images;
 }
 
-function getContainedRect(image, naturalWidth, naturalHeight) {
+function getContainedRect(naturalWidth, naturalHeight) {
   const viewportWidth = window.innerWidth - 32;
   const viewportHeight = window.innerHeight - 96;
+
   const ratio = Math.min(
     viewportWidth / naturalWidth,
     viewportHeight / naturalHeight
@@ -37,13 +38,19 @@ function getContainedRect(image, naturalWidth, naturalHeight) {
 
 function animateIntoViewer(sourceButton, image) {
   const sourceImage = sourceButton?.querySelector("img");
-  if (!sourceImage || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    viewer.classList.add("is-open");
+
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  if (!sourceImage || reduceMotion) {
+    viewer.classList.add("is-open", "is-settled");
     return;
   }
 
   const sourceRect = sourceButton.getBoundingClientRect();
   const transitionImage = sourceImage.cloneNode();
+
   transitionImage.className = "viewer-transition-image";
   transitionImage.style.left = `${sourceRect.left}px`;
   transitionImage.style.top = `${sourceRect.top}px`;
@@ -54,16 +61,22 @@ function animateIntoViewer(sourceButton, image) {
 
   document.body.appendChild(transitionImage);
   viewer.classList.add("is-open");
-  viewerImage.style.opacity = "0";
 
   const preload = new Image();
   preload.src = image.src;
 
-  const run = () => {
-    const target = getContainedRect(
-      preload.naturalWidth || sourceImage.naturalWidth || sourceRect.width,
-      preload.naturalHeight || sourceImage.naturalHeight || sourceRect.height
-    );
+  const runAnimation = () => {
+    const naturalWidth =
+      preload.naturalWidth ||
+      sourceImage.naturalWidth ||
+      sourceRect.width;
+
+    const naturalHeight =
+      preload.naturalHeight ||
+      sourceImage.naturalHeight ||
+      sourceRect.height;
+
+    const target = getContainedRect(naturalWidth, naturalHeight);
 
     requestAnimationFrame(() => {
       transitionImage.style.left = `${target.left}px`;
@@ -74,24 +87,30 @@ function animateIntoViewer(sourceButton, image) {
     });
 
     window.setTimeout(() => {
-      viewerImage.style.opacity = "";
+      viewer.classList.add("is-settled");
       transitionImage.style.opacity = "0";
 
       window.setTimeout(() => {
         transitionImage.remove();
-      }, 180);
-    }, 470);
+      }, 150);
+    }, 400);
   };
 
   if (preload.complete) {
-    run();
+    runAnimation();
   } else {
-    preload.onload = run;
+    preload.onload = runAnimation;
+
+    preload.onerror = () => {
+      viewer.classList.add("is-settled");
+      transitionImage.remove();
+    };
   }
 }
 
 function renderViewerImage() {
   const image = viewerImages[viewerIndex];
+
   if (!image) return;
 
   viewerImage.classList.add("is-changing");
@@ -99,6 +118,7 @@ function renderViewerImage() {
   window.setTimeout(() => {
     viewerImage.src = image.src;
     viewerImage.alt = image.alt || "Portfolio image";
+
     viewerCounter.textContent =
       `${String(viewerIndex + 1).padStart(2, "0")} / ` +
       `${String(viewerImages.length).padStart(2, "0")}`;
@@ -114,9 +134,13 @@ function renderViewerImage() {
 }
 
 function openViewer(index, sourceButton = null) {
+  viewer.classList.remove("is-settled");
+
   viewerIndex = index;
   viewerSource = sourceButton;
+
   renderViewerImage();
+
   viewer.setAttribute("aria-hidden", "false");
   document.body.classList.add("is-locked");
 
@@ -124,7 +148,7 @@ function openViewer(index, sourceButton = null) {
 }
 
 function closeViewer() {
-  viewer.classList.remove("is-open");
+  viewer.classList.remove("is-open", "is-settled");
   viewer.setAttribute("aria-hidden", "true");
   document.body.classList.remove("is-locked");
   viewerSource = null;
@@ -137,7 +161,9 @@ function nextViewerImage() {
 }
 
 function previousViewerImage() {
-  viewerIndex = (viewerIndex - 1 + viewerImages.length) % viewerImages.length;
+  viewerIndex =
+    (viewerIndex - 1 + viewerImages.length) % viewerImages.length;
+
   viewerSource = null;
   renderViewerImage();
 }
@@ -147,26 +173,51 @@ nextZone.addEventListener("click", nextViewerImage);
 closeZone.addEventListener("click", closeViewer);
 viewerBackdrop.addEventListener("click", closeViewer);
 
-viewer.addEventListener("touchstart", event => {
-  const touch = event.changedTouches[0];
-  touchStartX = touch.clientX;
-  touchStartY = touch.clientY;
-}, { passive: true });
+viewer.addEventListener(
+  "touchstart",
+  event => {
+    const touch = event.changedTouches[0];
 
-viewer.addEventListener("touchend", event => {
-  const touch = event.changedTouches[0];
-  const deltaX = touch.clientX - touchStartX;
-  const deltaY = touch.clientY - touchStartY;
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
+  },
+  { passive: true }
+);
 
-  if (Math.abs(deltaX) > 55 && Math.abs(deltaX) > Math.abs(deltaY)) {
-    deltaX < 0 ? nextViewerImage() : previousViewerImage();
-  }
-}, { passive: true });
+viewer.addEventListener(
+  "touchend",
+  event => {
+    const touch = event.changedTouches[0];
+
+    const deltaX = touch.clientX - touchStartX;
+    const deltaY = touch.clientY - touchStartY;
+
+    if (
+      Math.abs(deltaX) > 55 &&
+      Math.abs(deltaX) > Math.abs(deltaY)
+    ) {
+      if (deltaX < 0) {
+        nextViewerImage();
+      } else {
+        previousViewerImage();
+      }
+    }
+  },
+  { passive: true }
+);
 
 window.addEventListener("keydown", event => {
   if (!viewer.classList.contains("is-open")) return;
 
-  if (event.key === "ArrowRight") nextViewerImage();
-  if (event.key === "ArrowLeft") previousViewerImage();
-  if (event.key === "Escape") closeViewer();
+  if (event.key === "ArrowRight") {
+    nextViewerImage();
+  }
+
+  if (event.key === "ArrowLeft") {
+    previousViewerImage();
+  }
+
+  if (event.key === "Escape") {
+    closeViewer();
+  }
 });

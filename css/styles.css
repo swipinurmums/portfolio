@@ -159,7 +159,7 @@ body.is-ready .hero-shot {
   justify-content: flex-start;
   align-items: center;
   padding:
-    clamp(90px, 24vw, 150px)
+    clamp(45px, 12vw, 75px)
     var(--edge)
     max(54px, env(safe-area-inset-bottom));
   text-align: center;
@@ -199,25 +199,6 @@ body.is-ready .hero-shot {
   text-decoration: none;
   text-transform: uppercase;
 }
-
-
-.contact__name {
-  margin: 0 0 clamp(34px, 11vw, 64px);
-  font-size: clamp(21px, 7vw, 38px);
-  font-weight: 400;
-  letter-spacing: .24em;
-  line-height: 1.15;
-  text-transform: uppercase;
-}
-
-.contact a {
-  width: fit-content;
-  font-size: 10px;
-  letter-spacing: .18em;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
 .viewer {
   position: fixed;
   inset: 0;
@@ -275,6 +256,11 @@ body.is-ready .hero-shot {
 }
 
 .viewer.is-open .viewer__image {
+  opacity: 0;
+  transform: scale(.96);
+}
+
+.viewer.is-open.is-settled .viewer__image {
   opacity: 1;
   transform: scale(1);
 }
@@ -322,12 +308,12 @@ body.is-ready .hero-shot {
   object-fit: cover;
   pointer-events: none;
   transition:
-    left .46s var(--ease),
-    top .46s var(--ease),
-    width .46s var(--ease),
-    height .46s var(--ease),
-    object-position .46s var(--ease),
-    opacity .18s ease;
+    left .4s var(--ease),
+    top .4s var(--ease),
+    width .4s var(--ease),
+    height .4s var(--ease),
+    object-position .4s var(--ease),
+    opacity .14s ease;
 }
 
 .desktop-cursor {
