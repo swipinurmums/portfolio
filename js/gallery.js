@@ -14,7 +14,11 @@ const layoutImageLimits = {
 
 function createShot(image, globalIndex, isFirstShoot) {
   const button = document.createElement("button");
-  button.className = `shot${isFirstShoot ? "" : " reveal"}`;
+  button.className = [
+    "shot",
+    isFirstShoot ? "" : "reveal",
+    image.className || ""
+  ].filter(Boolean).join(" ");
   button.type = "button";
   button.dataset.index = String(globalIndex);
   button.setAttribute("aria-label", `Open image ${globalIndex + 1}`);

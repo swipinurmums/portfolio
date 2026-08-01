@@ -8,198 +8,223 @@
     "instagram": "https://www.instagram.com/"
   },
   "shoots": [
-    {
-      "id": "esmee-opening",
-      "layout": "hero",
-      "images": [
-        {
-          "src": "images/esmee/esmee-06.webp",
-          "alt": "Editorial fashion portrait outdoors",
-          "position": "50% 35%"
-        }
-      ]
-    },
-    {
-      "id": "esmee-full-length",
-      "layout": "single-wide",
-      "images": [
-        {
-          "src": "images/esmee/esmee-09.webp",
-          "alt": "Full-length location fashion portrait"
-        }
-      ]
-    },
-    {
-      "id": "esmee-pair",
-      "layout": "pair-staggered",
-      "images": [
-        {
-          "src": "images/esmee/esmee-02.webp",
-          "alt": "Close editorial portrait"
-        },
-        {
-          "src": "images/esmee/esmee-03.webp",
-          "alt": "Full-length portrait beside an ornate gate"
-        }
-      ]
-    },
-    {
-      "id": "esmee-inset-left",
-      "layout": "single-inset-left",
-      "images": [
-        {
-          "src": "images/esmee/esmee-01.webp",
-          "alt": "Location fashion portrait"
-        }
-      ]
-    },
-    {
-      "id": "esmee-inset-right",
-      "layout": "single-inset-right",
-      "images": [
-        {
-          "src": "images/esmee/esmee-04.webp",
-          "alt": "Editorial fashion portrait"
-        }
-      ]
-    },
-    {
-      "id": "world-cup-pair",
-      "layout": "pair-equal",
-      "images": [
-        {
-          "src": "images/world-cup/world-cup-01.webp",
-          "alt": "Football lifestyle portrait"
-        },
-        {
-          "src": "images/world-cup/world-cup-02.webp",
-          "alt": "Football campaign portrait"
-        }
-      ]
-    },
-    {
-      "id": "world-cup-landscape",
-      "layout": "landscape",
-      "images": [
-        {
-          "src": "images/world-cup/world-cup-landscape.webp",
-          "alt": "Football lifestyle scene"
-        }
-      ]
-    },
-    {
-      "id": "world-cup-single",
-      "layout": "single-wide",
-      "images": [
-        {
-          "src": "images/world-cup/world-cup-03.webp",
-          "alt": "Commercial football portrait"
-        }
-      ]
-    },
-    {
-      "id": "world-cup-inset",
-      "layout": "single-inset-left",
-      "images": [
-        {
-          "src": "images/world-cup/world-cup-04.webp",
-          "alt": "Football location portrait"
-        }
-      ]
-    },
-    {
-      "id": "timmy-pair",
-      "layout": "pair-staggered",
-      "images": [
-        {
-          "src": "images/timmy/timmy-01.webp",
-          "alt": "Urban fashion portrait"
-        },
-        {
-          "src": "images/timmy/timmy-02.webp",
-          "alt": "City location portrait"
-        }
-      ]
-    },
-    {
-      "id": "runway-triptych",
-      "layout": "triptych",
-      "images": [
-        {
-          "src": "images/runway/runway-01.webp",
-          "alt": "Charity runway photograph"
-        },
-        {
-          "src": "images/runway/runway-02.webp",
-          "alt": "Runway fashion photograph"
-        },
-        {
-          "src": "images/runway/runway-03.webp",
-          "alt": "Runway portrait"
-        }
-      ]
-    },
-    {
-      "id": "runway-landscape",
-      "layout": "landscape",
-      "images": [
-        {
-          "src": "images/runway/runway-landscape.webp",
-          "alt": "Runway scene"
-        }
-      ]
-    },
-    {
-      "id": "runway-pair",
-      "layout": "pair-equal",
-      "images": [
-        {
-          "src": "images/runway/runway-04.webp",
-          "alt": "Runway portrait"
-        },
-        {
-          "src": "images/runway/runway-trio.webp",
-          "alt": "Runway group photograph"
-        }
-      ]
-    },
-    {
-      "id": "digis",
-      "layout": "pair-equal",
-      "images": [
-        {
-          "src": "images/digis/hair-down.webp",
-          "alt": "Front-facing modelling digital"
-        },
-        {
-          "src": "images/digis/side-profile.webp",
-          "alt": "Side-profile modelling digital"
-        }
-      ]
-    },
-    {
-      "id": "misc-portrait",
-      "layout": "single-inset-right",
-      "images": [
-        {
-          "src": "images/misc/portrait-01.webp",
-          "alt": "Fashion portrait"
-        }
-      ]
-    },
-    {
-      "id": "tux-closing",
-      "layout": "pair-staggered",
-      "images": [
-        {
-          "src": "images/tux/tux-01.webp",
-          "alt": "Formal tuxedo portrait"
-        },
-        {
-          "src": "images/tux/tux-02.webp",
-          "alt": "Formal fashion portrait"
-        }
-      ]
-    }
+  {
+    "id": "world-cup-opening",
+    "layout": "single-wide",
+    "images": [
+      {
+        "src": "images/world-cup/world-cup-03.webp",
+        "alt": "Close football lifestyle portrait",
+        "className": "shot--close-portrait"
+      }
+    ]
+  },
+  {
+    "id": "world-cup-second",
+    "layout": "single-inset-right",
+    "images": [
+      {
+        "src": "images/world-cup/world-cup-04.webp",
+        "alt": "Football location portrait"
+      }
+    ]
+  },
+  {
+    "id": "world-cup-pair",
+    "layout": "pair-equal",
+    "images": [
+      {
+        "src": "images/world-cup/world-cup-01.webp",
+        "alt": "Football lifestyle portrait"
+      },
+      {
+        "src": "images/world-cup/world-cup-02.webp",
+        "alt": "Football campaign portrait"
+      }
+    ]
+  },
+  {
+    "id": "world-cup-group",
+    "layout": "cinematic",
+    "images": [
+      {
+        "src": "images/world-cup/world-cup-05.jpg",
+        "alt": "Group football fashion campaign photograph"
+      }
+    ]
+  },
+  {
+    "id": "world-cup-closing",
+    "layout": "landscape",
+    "images": [
+      {
+        "src": "images/world-cup/world-cup-landscape.webp",
+        "alt": "Football lifestyle scene"
+      }
+    ]
+  },
+
+  {
+    "id": "esmee-opening",
+    "layout": "hero",
+    "images": [
+      {
+        "src": "images/esmee/esmee-06.webp",
+        "alt": "Editorial fashion portrait outdoors",
+        "position": "50% 35%"
+      }
+    ]
+  },
+  {
+    "id": "esmee-full-length",
+    "layout": "single-wide",
+    "images": [
+      {
+        "src": "images/esmee/esmee-09.webp",
+        "alt": "Full-length location fashion portrait"
+      }
+    ]
+  },
+  {
+    "id": "esmee-pair",
+    "layout": "pair-staggered",
+    "images": [
+      {
+        "src": "images/esmee/esmee-02.webp",
+        "alt": "Close editorial portrait"
+      },
+      {
+        "src": "images/esmee/esmee-03.webp",
+        "alt": "Full-length portrait beside an ornate gate"
+      }
+    ]
+  },
+  {
+    "id": "esmee-inset-left",
+    "layout": "single-inset-left",
+    "images": [
+      {
+        "src": "images/esmee/esmee-01.webp",
+        "alt": "Location fashion portrait"
+      }
+    ]
+  },
+  {
+    "id": "esmee-inset-right",
+    "layout": "single-inset-right",
+    "images": [
+      {
+        "src": "images/esmee/esmee-04.webp",
+        "alt": "Editorial fashion portrait"
+      }
+    ]
+  },
+
+  {
+    "id": "timmy-pair",
+    "layout": "pair-staggered",
+    "images": [
+      {
+        "src": "images/timmy/timmy-01.webp",
+        "alt": "Urban fashion portrait"
+      },
+      {
+        "src": "images/timmy/timmy-02.webp",
+        "alt": "City location portrait"
+      }
+    ]
+  },
+
+  {
+    "id": "runway-opening",
+    "layout": "hero",
+    "images": [
+      {
+        "src": "images/runway/runway-02.webp",
+        "alt": "Full-screen runway fashion photograph",
+        "position": "50% 20%"
+      }
+    ]
+  },
+  {
+    "id": "runway-opening-pair",
+    "layout": "pair-staggered",
+    "images": [
+      {
+        "src": "images/runway/runway-03.webp",
+        "alt": "Runway portrait"
+      },
+      {
+        "src": "images/runway/runway-01.webp",
+        "alt": "Charity runway photograph"
+      }
+    ]
+  },
+  {
+    "id": "runway-landscape",
+    "layout": "landscape",
+    "images": [
+      {
+        "src": "images/runway/runway-landscape.webp",
+        "alt": "Runway scene"
+      }
+    ]
+  },
+  {
+    "id": "runway-closing-pair",
+    "layout": "pair-equal",
+    "images": [
+      {
+        "src": "images/runway/runway-04.webp",
+        "alt": "Runway portrait"
+      },
+      {
+        "src": "images/runway/runway-trio.webp",
+        "alt": "Runway group photograph"
+      }
+    ]
+  },
+
+  {
+    "id": "misc-portrait",
+    "layout": "single-inset-right",
+    "images": [
+      {
+        "src": "images/misc/portrait-01.webp",
+        "alt": "Fashion portrait"
+      }
+    ]
+  },
+
+  {
+    "id": "tux-closing",
+    "layout": "pair-staggered",
+    "images": [
+      {
+        "src": "images/tux/tux-01.webp",
+        "alt": "Formal tuxedo portrait"
+      },
+      {
+        "src": "images/tux/tux-02.webp",
+        "alt": "Formal fashion portrait"
+      }
+    ]
+  },
+
+  {
+    "id": "digis",
+    "layout": "pair-equal",
+    "images": [
+      {
+        "src": "images/digis/hair-down.webp",
+        "alt": "Front-facing modelling digital"
+      },
+      {
+        "src": "images/digis/side-profile.webp",
+        "alt": "Side-profile modelling digital"
+      }
+    ]
+  }
+
   ]
 }
