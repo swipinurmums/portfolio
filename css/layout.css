@@ -18,17 +18,21 @@
 }
 
 .shoot:first-child {
-  padding-top: var(--edge);
+  padding-top: 0;
+}
+
+.layout--hero {
+  padding-inline: 0;
 }
 
 .layout--hero .shot {
   grid-column: 1 / -1;
-  height: calc(100svh - (var(--edge) * 2));
-  min-height: 520px;
+  height: 100svh;
+  min-height: 560px;
 }
 
 .layout--single-wide .shot {
-  grid-column: 1 / -1;
+  grid-column: 2 / span 10;
   aspect-ratio: 4 / 5;
 }
 
@@ -50,7 +54,7 @@
 .layout--pair-staggered .shot:last-child {
   grid-column: 8 / -1;
   aspect-ratio: 3 / 4;
-  margin-top: 22vw;
+  margin-top: 28vw;
 }
 
 .layout--pair-equal .shot:first-child {
@@ -92,7 +96,7 @@
 }
 
 .contact-screen {
-  min-height: 76svh;
+  min-height: 72svh;
   display: grid;
   align-content: center;
   gap: 18px;
@@ -133,7 +137,7 @@
   }
 
   .layout--hero .shot {
-    height: calc(100vh - (var(--edge) * 2));
+    height: 100vh;
   }
 
   .layout--single-wide .shot {

@@ -22,7 +22,6 @@ async function startPortfolio() {
     initialiseLightbox();
   } catch (error) {
     console.error(error);
-
     portfolioRoot.innerHTML = `
       <div class="error-message">
         The portfolio could not load. Run the site through GitHub Pages,

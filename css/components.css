@@ -14,7 +14,12 @@
   visibility: hidden;
 }
 
-.loader span,
+.loader span {
+  margin-left: .34em;
+  font-size: 10px;
+  letter-spacing: .34em;
+}
+
 .site-mark a,
 .viewer__counter {
   font-size: 10px;

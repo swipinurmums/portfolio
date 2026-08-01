@@ -24,6 +24,10 @@ function createShot(image, globalIndex, isFirstShoot) {
   img.alt = image.alt || "Portfolio image";
   img.decoding = "async";
 
+  if (image.position) {
+    img.style.objectPosition = image.position;
+  }
+
   if (globalIndex === 0) {
     img.fetchPriority = "high";
   } else {

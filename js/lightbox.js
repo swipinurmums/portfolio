@@ -32,7 +32,6 @@ function updateViewer() {
 function openViewer(index) {
   currentImageIndex = index;
   updateViewer();
-
   viewer.classList.add("is-open");
   viewer.setAttribute("aria-hidden", "false");
   document.body.classList.add("is-locked");
@@ -85,7 +84,6 @@ function initialiseLightbox() {
 
   window.addEventListener("keydown", event => {
     if (!viewer.classList.contains("is-open")) return;
-
     if (event.key === "ArrowRight") nextImage();
     if (event.key === "ArrowLeft") previousImage();
     if (event.key === "Escape") closeViewer();

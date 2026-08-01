@@ -9,108 +9,195 @@
   },
   "shoots": [
     {
-      "id": "location-01",
+      "id": "esmee-opening",
       "layout": "hero",
       "images": [
         {
-          "src": "https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=1800&q=90",
-          "alt": "Editorial portrait"
+          "src": "images/esmee/esmee-06.webp",
+          "alt": "Editorial fashion portrait outdoors",
+          "position": "50% 35%"
         }
       ]
     },
     {
-      "id": "location-02",
+      "id": "esmee-full-length",
       "layout": "single-wide",
       "images": [
         {
-          "src": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1600&q=90",
-          "alt": "Location portrait"
+          "src": "images/esmee/esmee-09.webp",
+          "alt": "Full-length location fashion portrait"
         }
       ]
     },
     {
-      "id": "location-03",
+      "id": "esmee-pair",
       "layout": "pair-staggered",
       "images": [
         {
-          "src": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1200&q=90",
-          "alt": "Close portrait"
+          "src": "images/esmee/esmee-02.webp",
+          "alt": "Close editorial portrait"
         },
         {
-          "src": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=1100&q=90",
-          "alt": "Black and white portrait"
+          "src": "images/esmee/esmee-03.webp",
+          "alt": "Full-length portrait beside an ornate gate"
         }
       ]
     },
     {
-      "id": "fashion-01",
-      "layout": "landscape",
+      "id": "esmee-inset-left",
+      "layout": "single-inset-left",
       "images": [
         {
-          "src": "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1800&q=90",
-          "alt": "Fashion editorial"
+          "src": "images/esmee/esmee-01.webp",
+          "alt": "Location fashion portrait"
         }
       ]
     },
     {
-      "id": "fashion-02",
+      "id": "esmee-inset-right",
       "layout": "single-inset-right",
       "images": [
         {
-          "src": "https://images.unsplash.com/photo-1521119989659-a83eee488004?auto=format&fit=crop&w=1200&q=90",
+          "src": "images/esmee/esmee-04.webp",
           "alt": "Editorial fashion portrait"
         }
       ]
     },
     {
-      "id": "portrait-01",
+      "id": "world-cup-pair",
       "layout": "pair-equal",
       "images": [
         {
-          "src": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=1200&q=90",
-          "alt": "Studio portrait"
+          "src": "images/world-cup/world-cup-01.webp",
+          "alt": "Football lifestyle portrait"
         },
         {
-          "src": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=90",
-          "alt": "Editorial portrait"
+          "src": "images/world-cup/world-cup-02.webp",
+          "alt": "Football campaign portrait"
         }
       ]
     },
     {
-      "id": "fashion-03",
-      "layout": "cinematic",
+      "id": "world-cup-landscape",
+      "layout": "landscape",
       "images": [
         {
-          "src": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1800&q=90",
-          "alt": "Cinematic fashion image"
+          "src": "images/world-cup/world-cup-landscape.webp",
+          "alt": "Football lifestyle scene"
         }
       ]
     },
     {
-      "id": "portrait-02",
+      "id": "world-cup-single",
+      "layout": "single-wide",
+      "images": [
+        {
+          "src": "images/world-cup/world-cup-03.webp",
+          "alt": "Commercial football portrait"
+        }
+      ]
+    },
+    {
+      "id": "world-cup-inset",
       "layout": "single-inset-left",
       "images": [
         {
-          "src": "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?auto=format&fit=crop&w=1200&q=90",
-          "alt": "Editorial portrait"
+          "src": "images/world-cup/world-cup-04.webp",
+          "alt": "Football location portrait"
         }
       ]
     },
     {
-      "id": "closing-sequence",
+      "id": "timmy-pair",
+      "layout": "pair-staggered",
+      "images": [
+        {
+          "src": "images/timmy/timmy-01.webp",
+          "alt": "Urban fashion portrait"
+        },
+        {
+          "src": "images/timmy/timmy-02.webp",
+          "alt": "City location portrait"
+        }
+      ]
+    },
+    {
+      "id": "runway-triptych",
       "layout": "triptych",
       "images": [
         {
-          "src": "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1400&q=90",
+          "src": "images/runway/runway-01.webp",
+          "alt": "Charity runway photograph"
+        },
+        {
+          "src": "images/runway/runway-02.webp",
+          "alt": "Runway fashion photograph"
+        },
+        {
+          "src": "images/runway/runway-03.webp",
+          "alt": "Runway portrait"
+        }
+      ]
+    },
+    {
+      "id": "runway-landscape",
+      "layout": "landscape",
+      "images": [
+        {
+          "src": "images/runway/runway-landscape.webp",
+          "alt": "Runway scene"
+        }
+      ]
+    },
+    {
+      "id": "runway-pair",
+      "layout": "pair-equal",
+      "images": [
+        {
+          "src": "images/runway/runway-04.webp",
+          "alt": "Runway portrait"
+        },
+        {
+          "src": "images/runway/runway-trio.webp",
+          "alt": "Runway group photograph"
+        }
+      ]
+    },
+    {
+      "id": "digis",
+      "layout": "pair-equal",
+      "images": [
+        {
+          "src": "images/digis/hair-down.webp",
+          "alt": "Front-facing modelling digital"
+        },
+        {
+          "src": "images/digis/side-profile.webp",
+          "alt": "Side-profile modelling digital"
+        }
+      ]
+    },
+    {
+      "id": "misc-portrait",
+      "layout": "single-inset-right",
+      "images": [
+        {
+          "src": "images/misc/portrait-01.webp",
           "alt": "Fashion portrait"
+        }
+      ]
+    },
+    {
+      "id": "tux-closing",
+      "layout": "pair-staggered",
+      "images": [
+        {
+          "src": "images/tux/tux-01.webp",
+          "alt": "Formal tuxedo portrait"
         },
         {
-          "src": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1000&q=90",
-          "alt": "Close fashion portrait"
-        },
-        {
-          "src": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1400&q=90",
-          "alt": "Closing editorial image"
+          "src": "images/tux/tux-02.webp",
+          "alt": "Formal fashion portrait"
         }
       ]
     }
