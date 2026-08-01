@@ -4,8 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="description" content="Aron Belle modelling portfolio" />
+  <meta name="theme-color" content="#f3f1ec" />
   <title>Aron Belle</title>
-  <link rel="preconnect" href="https://images.unsplash.com" />
+
   <link rel="stylesheet" href="css/variables.css" />
   <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/layout.css" />
@@ -13,40 +14,35 @@
   <link rel="stylesheet" href="css/animations.css" />
 </head>
 <body>
-  <div class="loader" aria-hidden="true"><span>AB</span></div>
+  <div class="loader" aria-hidden="true">
+    <span>AB</span>
+  </div>
+
   <div class="grain" aria-hidden="true"></div>
-  <header class="site-mark"><a href="#top" aria-label="Back to top">AB</a></header>
-  <main id="top" class="portfolio">
-    <section class="hero">
-      <button class="photo photo--hero" data-index="0" aria-label="Open image 1"><img src="https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=1800&q=90" alt="Editorial portrait" fetchpriority="high" /></button>
-    </section>
-    <section class="sequence">
-      <button class="photo photo--wide reveal" data-index="1"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1600&q=90" alt="Studio portrait" loading="lazy" /></button>
-      <div class="paired paired--high-low">
-        <button class="photo photo--portrait reveal" data-index="2"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1200&q=90" alt="Close portrait" loading="lazy" /></button>
-        <button class="photo photo--small reveal" data-index="3"><img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=1100&q=90" alt="Black and white portrait" loading="lazy" /></button>
-      </div>
-      <button class="photo photo--landscape reveal" data-index="4"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1800&q=90" alt="Fashion editorial" loading="lazy" /></button>
-      <button class="photo photo--narrow photo--right reveal" data-index="5"><img src="https://images.unsplash.com/photo-1521119989659-a83eee488004?auto=format&fit=crop&w=1200&q=90" alt="Editorial fashion portrait" loading="lazy" /></button>
-      <div class="paired paired--equal">
-        <button class="photo photo--portrait reveal" data-index="6"><img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=1200&q=90" alt="Studio fashion image" loading="lazy" /></button>
-        <button class="photo photo--portrait reveal" data-index="7"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=90" alt="Editorial portrait" loading="lazy" /></button>
-      </div>
-      <button class="photo photo--cinematic reveal" data-index="8"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1800&q=90" alt="Cinematic fashion image" loading="lazy" /></button>
-      <button class="photo photo--narrow photo--left reveal" data-index="9"><img src="https://images.unsplash.com/photo-1506629082955-511b1aa562c8?auto=format&fit=crop&w=1200&q=90" alt="Editorial portrait" loading="lazy" /></button>
-      <button class="photo photo--final reveal" data-index="10"><img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1800&q=90" alt="Closing fashion portrait" loading="lazy" /></button>
-    </section>
+
+  <header class="site-mark">
+    <a href="#top" aria-label="Back to the beginning">AB</a>
+  </header>
+
+  <main id="top" class="portfolio" aria-label="Modelling portfolio">
+    <div id="portfolio-root"></div>
   </main>
+
   <div class="viewer" aria-hidden="true">
     <div class="viewer__backdrop"></div>
+
     <div class="viewer__stage">
       <img class="viewer__image" src="" alt="" />
+
       <button class="viewer__zone viewer__zone--left" aria-label="Previous image"></button>
       <button class="viewer__zone viewer__zone--centre" aria-label="Close image"></button>
       <button class="viewer__zone viewer__zone--right" aria-label="Next image"></button>
     </div>
-    <div class="viewer__counter" aria-live="polite">01 / 11</div>
+
+    <div class="viewer__counter" aria-live="polite"></div>
   </div>
+
+  <script src="js/config.js"></script>
   <script src="js/gallery.js"></script>
   <script src="js/lightbox.js"></script>
   <script src="js/animations.js"></script>

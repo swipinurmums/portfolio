@@ -1,69 +1,108 @@
-# Aron Belle — Modelling Portfolio
+# Aron Belle — Data-Driven Modelling Portfolio
 
-A mobile-first editorial modelling portfolio hosted with GitHub Pages.
+This version generates the entire portfolio from `data/portfolio.json`.
 
-## Project structure
+You no longer need to manually add each photograph to `index.html`.
+
+## Important
+
+Because the site loads JSON using `fetch()`, do not open `index.html`
+directly from File Explorer. Use:
+
+- GitHub Pages
+- VS Code Live Server
+- `python -m http.server`
+
+Your GitHub Pages version will work normally.
+
+## Add a shoot
+
+Open:
 
 ```text
-Portfolio/
-├── index.html
-├── css/
-│   ├── variables.css
-│   ├── base.css
-│   ├── layout.css
-│   ├── components.css
-│   └── animations.css
-├── js/
-│   ├── gallery.js
-│   ├── lightbox.js
-│   ├── animations.js
-│   └── main.js
-├── images/
-│   ├── hero/
-│   ├── editorial/
-│   ├── commercial/
-│   ├── lifestyle/
-│   └── polaroids/
-└── assets/
-    ├── icons/
-    └── favicon/
+data/portfolio.json
 ```
 
-## What each file does
+Add another object inside the `shoots` array:
 
-- `variables.css`: colours, spacing and shared design values.
-- `base.css`: browser reset and global element rules.
-- `layout.css`: page structure, grids and responsive positioning.
-- `components.css`: loader, photos, branding and fullscreen viewer.
-- `animations.css`: grain, reveal motion and reduced-motion support.
-- `gallery.js`: gathers portfolio images and exposes their data.
-- `lightbox.js`: enlarged viewer, taps, swipes and keyboard controls.
-- `animations.js`: scroll-reveal behaviour.
-- `main.js`: starts the site features.
-
-## Replace the temporary images
-
-The current version still uses remote Unsplash placeholders.
-
-Add your photographs to the relevant folders, then update each `src` in
-`index.html`.
-
-Example:
-
-```html
-<img
-  src="images/editorial/studio-portrait-01.webp"
-  alt="Black and white studio portrait"
-  loading="lazy"
-/>
+```json
+{
+  "id": "new-shoot",
+  "layout": "pair-staggered",
+  "images": [
+    {
+      "src": "images/new-shoot/photo-01.webp",
+      "alt": "Outdoor fashion portrait"
+    },
+    {
+      "src": "images/new-shoot/photo-02.webp",
+      "alt": "Full-length location photograph"
+    }
+  ]
+}
 ```
 
-Use lowercase file names without spaces. WebP is recommended.
+Then create:
+
+```text
+images/new-shoot/
+```
+
+and place the photographs inside it.
+
+## Available layouts
+
+- `hero` — one near-full-screen opening image
+- `single-wide` — one large centred image
+- `single-inset-left` — one narrower image aligned left
+- `single-inset-right` — one narrower image aligned right
+- `pair-staggered` — two differently sized, vertically offset images
+- `pair-equal` — two balanced portrait images
+- `landscape` — one 4:3 landscape image
+- `cinematic` — one wider cinematic image
+- `triptych` — three-image closing sequence
+
+Each layout uses only the number of images it needs.
+
+## Contact details
+
+Edit the `contact` section of `portfolio.json`:
+
+```json
+"contact": {
+  "enabled": true,
+  "email": "your@email.com",
+  "instagram": "https://www.instagram.com/yourusername/"
+}
+```
+
+Set `enabled` to `false` to hide it.
+
+## Endless-scroll effect
+
+The site currently creates the illusion of a loop with an `AB` return screen
+at the bottom. Tapping it smoothly returns to the first image.
+
+Set this to `false` to remove it:
+
+```json
+"settings": {
+  "loopReturn": false
+}
+```
+
+## Recommended image export
+
+- WebP or high-quality JPEG
+- 1600–2200 px on the longest edge
+- lowercase filenames
+- no spaces in filenames
+- descriptive alt text
 
 ## GitHub workflow
 
-1. Copy these files into the local GitHub repository folder.
-2. Open GitHub Desktop.
-3. Commit the changes.
-4. Push to `main`.
-5. Wait for the GitHub Pages deployment to complete.
+1. Replace your current repository files with these.
+2. Commit through GitHub Desktop.
+3. Push to `main`.
+4. Wait for the GitHub Pages deployment.
+5. Refresh the live site on your phone.

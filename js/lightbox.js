@@ -6,23 +6,32 @@ const previousZone = document.querySelector(".viewer__zone--left");
 const closeZone = document.querySelector(".viewer__zone--centre");
 const nextZone = document.querySelector(".viewer__zone--right");
 
-let currentPhotoIndex = 0;
+let currentImageIndex = 0;
 let touchStartX = 0;
 let touchStartY = 0;
 
-function renderViewer() {
-  const image = getPhotoSource(currentPhotoIndex);
+function updateViewer() {
+  const image = portfolioImages[currentImageIndex];
+  if (!image) return;
 
-  viewerImage.src = image.src;
-  viewerImage.alt = image.alt;
-  viewerCounter.textContent =
-    `${String(currentPhotoIndex + 1).padStart(2, "0")} / ` +
-    `${String(portfolioPhotos.length).padStart(2, "0")}`;
+  viewerImage.classList.add("is-changing");
+
+  window.setTimeout(() => {
+    viewerImage.src = image.src;
+    viewerImage.alt = image.alt || "Portfolio image";
+    viewerCounter.textContent =
+      `${String(currentImageIndex + 1).padStart(2, "0")} / ` +
+      `${String(portfolioImages.length).padStart(2, "0")}`;
+
+    viewerImage.onload = () => {
+      viewerImage.classList.remove("is-changing");
+    };
+  }, 90);
 }
 
 function openViewer(index) {
-  currentPhotoIndex = index;
-  renderViewer();
+  currentImageIndex = index;
+  updateViewer();
 
   viewer.classList.add("is-open");
   viewer.setAttribute("aria-hidden", "false");
@@ -35,24 +44,26 @@ function closeViewer() {
   document.body.classList.remove("is-locked");
 }
 
-function showNextPhoto() {
-  currentPhotoIndex = (currentPhotoIndex + 1) % portfolioPhotos.length;
-  renderViewer();
+function nextImage() {
+  currentImageIndex = (currentImageIndex + 1) % portfolioImages.length;
+  updateViewer();
 }
 
-function showPreviousPhoto() {
-  currentPhotoIndex =
-    (currentPhotoIndex - 1 + portfolioPhotos.length) % portfolioPhotos.length;
-  renderViewer();
+function previousImage() {
+  currentImageIndex =
+    (currentImageIndex - 1 + portfolioImages.length) % portfolioImages.length;
+  updateViewer();
 }
 
 function initialiseLightbox() {
-  portfolioPhotos.forEach((photo, index) => {
-    photo.addEventListener("click", () => openViewer(index));
+  document.querySelectorAll(".shot").forEach(shot => {
+    shot.addEventListener("click", () => {
+      openViewer(Number(shot.dataset.index));
+    });
   });
 
-  previousZone.addEventListener("click", showPreviousPhoto);
-  nextZone.addEventListener("click", showNextPhoto);
+  previousZone.addEventListener("click", previousImage);
+  nextZone.addEventListener("click", nextImage);
   closeZone.addEventListener("click", closeViewer);
   viewerBackdrop.addEventListener("click", closeViewer);
 
@@ -68,15 +79,15 @@ function initialiseLightbox() {
     const deltaY = touch.clientY - touchStartY;
 
     if (Math.abs(deltaX) > 55 && Math.abs(deltaX) > Math.abs(deltaY)) {
-      deltaX < 0 ? showNextPhoto() : showPreviousPhoto();
+      deltaX < 0 ? nextImage() : previousImage();
     }
   }, { passive: true });
 
   window.addEventListener("keydown", event => {
     if (!viewer.classList.contains("is-open")) return;
 
-    if (event.key === "ArrowRight") showNextPhoto();
-    if (event.key === "ArrowLeft") showPreviousPhoto();
+    if (event.key === "ArrowRight") nextImage();
+    if (event.key === "ArrowLeft") previousImage();
     if (event.key === "Escape") closeViewer();
   });
 }

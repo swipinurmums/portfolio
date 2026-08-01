@@ -2,61 +2,191 @@
   width: 100%;
 }
 
-.hero {
-  width: 100%;
-  padding: var(--edge);
-  padding-top: max(var(--edge), env(safe-area-inset-top));
-}
-
-.sequence {
+.portfolio-feed {
   display: flex;
   flex-direction: column;
-  gap: var(--gap);
-  padding: var(--gap) var(--edge) calc(var(--gap) * 1.25);
+  gap: var(--section-gap);
+  padding-bottom: calc(var(--section-gap) * 1.15);
 }
 
-.paired {
+.shoot {
   display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--image-gap);
   width: 100%;
-  gap: 12px;
-  align-items: start;
+  padding-inline: var(--edge);
 }
 
-.paired--high-low {
-  grid-template-columns: 1.15fr .85fr;
+.shoot:first-child {
+  padding-top: var(--edge);
 }
 
-.paired--high-low .photo--small {
-  margin-top: 26vw;
+.layout--hero .shot {
+  grid-column: 1 / -1;
+  height: calc(100svh - (var(--edge) * 2));
+  min-height: 520px;
 }
 
-.paired--equal {
-  grid-template-columns: 1fr 1fr;
+.layout--single-wide .shot {
+  grid-column: 1 / -1;
+  aspect-ratio: 4 / 5;
 }
 
-.paired--equal .photo:last-child {
-  margin-top: 14vw;
+.layout--single-inset-left .shot {
+  grid-column: 1 / span 9;
+  aspect-ratio: 3 / 4;
+}
+
+.layout--single-inset-right .shot {
+  grid-column: 4 / -1;
+  aspect-ratio: 3 / 4;
+}
+
+.layout--pair-staggered .shot:first-child {
+  grid-column: 1 / span 7;
+  aspect-ratio: 3 / 4;
+}
+
+.layout--pair-staggered .shot:last-child {
+  grid-column: 8 / -1;
+  aspect-ratio: 3 / 4;
+  margin-top: 22vw;
+}
+
+.layout--pair-equal .shot:first-child {
+  grid-column: 1 / span 6;
+  aspect-ratio: 3 / 4;
+}
+
+.layout--pair-equal .shot:last-child {
+  grid-column: 7 / -1;
+  aspect-ratio: 3 / 4;
+  margin-top: 12vw;
+}
+
+.layout--landscape .shot {
+  grid-column: 1 / -1;
+  aspect-ratio: 4 / 3;
+}
+
+.layout--cinematic .shot {
+  grid-column: 1 / -1;
+  aspect-ratio: 16 / 11;
+}
+
+.layout--triptych .shot:nth-child(1) {
+  grid-column: 1 / span 8;
+  aspect-ratio: 3 / 4;
+}
+
+.layout--triptych .shot:nth-child(2) {
+  grid-column: 9 / -1;
+  aspect-ratio: 3 / 4;
+  margin-top: 18vw;
+}
+
+.layout--triptych .shot:nth-child(3) {
+  grid-column: 3 / span 8;
+  aspect-ratio: 4 / 5;
+  margin-top: 6vw;
+}
+
+.contact-screen {
+  min-height: 76svh;
+  display: grid;
+  align-content: center;
+  gap: 18px;
+  padding: var(--section-gap) var(--edge);
+}
+
+.contact-screen a {
+  width: fit-content;
+  color: inherit;
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.loop-return {
+  display: grid;
+  min-height: 44svh;
+  place-items: center;
+  padding: var(--edge);
+}
+
+.loop-return a {
+  color: inherit;
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-decoration: none;
 }
 
 @media (min-width: 760px) {
-  .hero {
-    padding: var(--edge);
-  }
-
-  .sequence {
+  .shoot {
     max-width: 1500px;
-    margin: 0 auto;
+    margin-inline: auto;
   }
 
-  .paired {
-    gap: clamp(20px, 3vw, 52px);
+  .layout--hero {
+    max-width: none;
   }
 
-  .paired--high-low .photo--small {
-    margin-top: 14vw;
+  .layout--hero .shot {
+    height: calc(100vh - (var(--edge) * 2));
   }
 
-  .paired--equal .photo:last-child {
-    margin-top: 8vw;
+  .layout--single-wide .shot {
+    grid-column: 2 / span 10;
+  }
+
+  .layout--single-inset-left .shot {
+    grid-column: 2 / span 6;
+  }
+
+  .layout--single-inset-right .shot {
+    grid-column: 6 / span 6;
+  }
+
+  .layout--pair-staggered .shot:first-child {
+    grid-column: 2 / span 5;
+  }
+
+  .layout--pair-staggered .shot:last-child {
+    grid-column: 8 / span 4;
+    margin-top: 10vw;
+  }
+
+  .layout--pair-equal .shot:first-child {
+    grid-column: 2 / span 5;
+  }
+
+  .layout--pair-equal .shot:last-child {
+    grid-column: 7 / span 5;
+    margin-top: 7vw;
+  }
+
+  .layout--landscape .shot,
+  .layout--cinematic .shot {
+    grid-column: 2 / span 10;
+  }
+
+  .layout--triptych .shot:nth-child(1) {
+    grid-column: 2 / span 6;
+  }
+
+  .layout--triptych .shot:nth-child(2) {
+    grid-column: 9 / span 3;
+    margin-top: 10vw;
+  }
+
+  .layout--triptych .shot:nth-child(3) {
+    grid-column: 4 / span 6;
+    margin-top: 4vw;
+  }
+
+  .contact-screen {
+    max-width: 1500px;
+    margin-inline: auto;
   }
 }

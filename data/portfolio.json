@@ -1,0 +1,118 @@
+{
+  "settings": {
+    "loopReturn": true
+  },
+  "contact": {
+    "enabled": true,
+    "email": "hello@example.com",
+    "instagram": "https://www.instagram.com/"
+  },
+  "shoots": [
+    {
+      "id": "location-01",
+      "layout": "hero",
+      "images": [
+        {
+          "src": "https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=1800&q=90",
+          "alt": "Editorial portrait"
+        }
+      ]
+    },
+    {
+      "id": "location-02",
+      "layout": "single-wide",
+      "images": [
+        {
+          "src": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1600&q=90",
+          "alt": "Location portrait"
+        }
+      ]
+    },
+    {
+      "id": "location-03",
+      "layout": "pair-staggered",
+      "images": [
+        {
+          "src": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1200&q=90",
+          "alt": "Close portrait"
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=1100&q=90",
+          "alt": "Black and white portrait"
+        }
+      ]
+    },
+    {
+      "id": "fashion-01",
+      "layout": "landscape",
+      "images": [
+        {
+          "src": "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1800&q=90",
+          "alt": "Fashion editorial"
+        }
+      ]
+    },
+    {
+      "id": "fashion-02",
+      "layout": "single-inset-right",
+      "images": [
+        {
+          "src": "https://images.unsplash.com/photo-1521119989659-a83eee488004?auto=format&fit=crop&w=1200&q=90",
+          "alt": "Editorial fashion portrait"
+        }
+      ]
+    },
+    {
+      "id": "portrait-01",
+      "layout": "pair-equal",
+      "images": [
+        {
+          "src": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=1200&q=90",
+          "alt": "Studio portrait"
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=90",
+          "alt": "Editorial portrait"
+        }
+      ]
+    },
+    {
+      "id": "fashion-03",
+      "layout": "cinematic",
+      "images": [
+        {
+          "src": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1800&q=90",
+          "alt": "Cinematic fashion image"
+        }
+      ]
+    },
+    {
+      "id": "portrait-02",
+      "layout": "single-inset-left",
+      "images": [
+        {
+          "src": "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?auto=format&fit=crop&w=1200&q=90",
+          "alt": "Editorial portrait"
+        }
+      ]
+    },
+    {
+      "id": "closing-sequence",
+      "layout": "triptych",
+      "images": [
+        {
+          "src": "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1400&q=90",
+          "alt": "Fashion portrait"
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1000&q=90",
+          "alt": "Close fashion portrait"
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1400&q=90",
+          "alt": "Closing editorial image"
+        }
+      ]
+    }
+  ]
+}

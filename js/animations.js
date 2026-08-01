@@ -6,17 +6,17 @@ function initialiseRevealAnimations() {
     return;
   }
 
-  const revealObserver = new IntersectionObserver(
+  const observer = new IntersectionObserver(
     entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("is-visible");
-          revealObserver.unobserve(entry.target);
+          observer.unobserve(entry.target);
         }
       });
     },
     { threshold: 0.12 }
   );
 
-  revealItems.forEach(item => revealObserver.observe(item));
+  revealItems.forEach(item => observer.observe(item));
 }

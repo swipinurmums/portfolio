@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   margin: 0;
@@ -25,8 +29,8 @@ body.is-locked {
 
 button,
 a {
-  font: inherit;
   color: inherit;
+  font: inherit;
 }
 
 button {

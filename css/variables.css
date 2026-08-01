@@ -2,13 +2,15 @@
   --paper: #f3f1ec;
   --ink: #11110f;
   --edge: clamp(16px, 4.8vw, 22px);
-  --gap: clamp(44px, 14vw, 92px);
-  --ease: cubic-bezier(.22,.75,.25,1);
+  --section-gap: clamp(72px, 22vw, 132px);
+  --image-gap: clamp(12px, 3.2vw, 18px);
+  --ease: cubic-bezier(.22, .75, .25, 1);
 }
 
 @media (min-width: 760px) {
   :root {
-    --edge: clamp(26px, 3vw, 48px);
-    --gap: clamp(90px, 12vw, 180px);
+    --edge: clamp(28px, 3vw, 48px);
+    --section-gap: clamp(120px, 14vw, 210px);
+    --image-gap: clamp(18px, 2vw, 34px);
   }
 }
