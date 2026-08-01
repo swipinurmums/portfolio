@@ -70,7 +70,7 @@
   --hover-scale: 2.94;
 
   /* Controls where the zoom expands from */
-  --origin: 0% 8%;
+  --origin: 12% 8%;
 
   /* Keeps the original image aligned normally */
   --position: 50% 50%;
