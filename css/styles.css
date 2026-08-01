@@ -249,25 +249,20 @@ body.is-ready .hero-shot {
   height: auto;
   object-fit: contain;
   opacity: 0;
-  transform: scale(.94);
+  transform: scale(.82);
   transition:
-    opacity .32s var(--ease),
-    transform .42s var(--ease);
+    opacity .4s var(--ease),
+    transform .4s var(--ease);
 }
 
 .viewer.is-open .viewer__image {
-  opacity: 0;
-  transform: scale(.96);
-}
-
-.viewer.is-open.is-settled .viewer__image {
   opacity: 1;
   transform: scale(1);
 }
 
 .viewer__image.is-changing {
   opacity: 0;
-  transform: scale(.975);
+  transform: scale(.94);
 }
 
 .viewer__zone {
@@ -302,19 +297,6 @@ body.is-ready .hero-shot {
   letter-spacing: .18em;
 }
 
-.viewer-transition-image {
-  position: fixed;
-  z-index: 990;
-  object-fit: cover;
-  pointer-events: none;
-  transition:
-    left .4s var(--ease),
-    top .4s var(--ease),
-    width .4s var(--ease),
-    height .4s var(--ease),
-    object-position .4s var(--ease),
-    opacity .14s ease;
-}
 
 .desktop-cursor {
   display: none;

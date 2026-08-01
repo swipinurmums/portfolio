@@ -8,7 +8,6 @@ const nextZone = document.querySelector(".viewer__zone--next");
 
 let viewerImages = [];
 let viewerIndex = 0;
-let viewerSource = null;
 let touchStartX = 0;
 let touchStartY = 0;
 
@@ -16,156 +15,72 @@ function configureViewer(images) {
   viewerImages = images;
 }
 
-function getContainedRect(naturalWidth, naturalHeight) {
-  const viewportWidth = window.innerWidth - 32;
-  const viewportHeight = window.innerHeight - 96;
-
-  const ratio = Math.min(
-    viewportWidth / naturalWidth,
-    viewportHeight / naturalHeight
-  );
-
-  const width = naturalWidth * ratio;
-  const height = naturalHeight * ratio;
-
-  return {
-    left: (window.innerWidth - width) / 2,
-    top: (window.innerHeight - height) / 2,
-    width,
-    height
-  };
-}
-
-function animateIntoViewer(sourceButton, image) {
-  const sourceImage = sourceButton?.querySelector("img");
-
-  const reduceMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
-
-  if (!sourceImage || reduceMotion) {
-    viewer.classList.add("is-open", "is-settled");
-    return;
-  }
-
-  const sourceRect = sourceButton.getBoundingClientRect();
-  const transitionImage = sourceImage.cloneNode();
-
-  transitionImage.className = "viewer-transition-image";
-  transitionImage.style.left = `${sourceRect.left}px`;
-  transitionImage.style.top = `${sourceRect.top}px`;
-  transitionImage.style.width = `${sourceRect.width}px`;
-  transitionImage.style.height = `${sourceRect.height}px`;
-  transitionImage.style.objectPosition =
-    getComputedStyle(sourceImage).objectPosition || "50% 50%";
-
-  document.body.appendChild(transitionImage);
-  viewer.classList.add("is-open");
-
-  const preload = new Image();
-  preload.src = image.src;
-
-  const runAnimation = () => {
-    const naturalWidth =
-      preload.naturalWidth ||
-      sourceImage.naturalWidth ||
-      sourceRect.width;
-
-    const naturalHeight =
-      preload.naturalHeight ||
-      sourceImage.naturalHeight ||
-      sourceRect.height;
-
-    const target = getContainedRect(naturalWidth, naturalHeight);
-
-    requestAnimationFrame(() => {
-      transitionImage.style.left = `${target.left}px`;
-      transitionImage.style.top = `${target.top}px`;
-      transitionImage.style.width = `${target.width}px`;
-      transitionImage.style.height = `${target.height}px`;
-      transitionImage.style.objectPosition = "50% 50%";
-    });
-
-    window.setTimeout(() => {
-      viewer.classList.add("is-settled");
-      transitionImage.style.opacity = "0";
-
-      window.setTimeout(() => {
-        transitionImage.remove();
-      }, 150);
-    }, 400);
-  };
-
-  if (preload.complete) {
-    runAnimation();
-  } else {
-    preload.onload = runAnimation;
-
-    preload.onerror = () => {
-      viewer.classList.add("is-settled");
-      transitionImage.remove();
-    };
-  }
-}
-
-function renderViewerImage() {
+function renderViewerImage({ animate = false } = {}) {
   const image = viewerImages[viewerIndex];
 
   if (!image) return;
 
-  viewerImage.classList.add("is-changing");
+  if (animate) {
+    viewerImage.classList.add("is-changing");
+  }
 
-  window.setTimeout(() => {
-    viewerImage.src = image.src;
-    viewerImage.alt = image.alt || "Portfolio image";
+  viewerImage.src = image.src;
+  viewerImage.alt = image.alt || "Portfolio image";
 
-    viewerCounter.textContent =
-      `${String(viewerIndex + 1).padStart(2, "0")} / ` +
-      `${String(viewerImages.length).padStart(2, "0")}`;
+  viewerCounter.textContent =
+    `${String(viewerIndex + 1).padStart(2, "0")} / ` +
+    `${String(viewerImages.length).padStart(2, "0")}`;
 
-    if (viewerImage.complete) {
+  const revealImage = () => {
+    requestAnimationFrame(() => {
       viewerImage.classList.remove("is-changing");
-    } else {
-      viewerImage.onload = () => {
-        viewerImage.classList.remove("is-changing");
-      };
-    }
-  }, 80);
+    });
+  };
+
+  if (viewerImage.complete) {
+    revealImage();
+  } else {
+    viewerImage.onload = revealImage;
+  }
 }
 
-function openViewer(index, sourceButton = null) {
-  viewer.classList.remove("is-settled");
-
+function openViewer(index) {
   viewerIndex = index;
-  viewerSource = sourceButton;
 
-  renderViewerImage();
+  /*
+   * Remove the open state first so the browser begins from
+   * the smaller, transparent image state.
+   */
+  viewer.classList.remove("is-open");
+
+  renderViewerImage({ animate: true });
 
   viewer.setAttribute("aria-hidden", "false");
   document.body.classList.add("is-locked");
 
-  animateIntoViewer(sourceButton, viewerImages[index]);
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      viewer.classList.add("is-open");
+    });
+  });
 }
 
 function closeViewer() {
-  viewer.classList.remove("is-open", "is-settled");
+  viewer.classList.remove("is-open");
   viewer.setAttribute("aria-hidden", "true");
   document.body.classList.remove("is-locked");
-  viewerSource = null;
 }
 
 function nextViewerImage() {
   viewerIndex = (viewerIndex + 1) % viewerImages.length;
-  viewerSource = null;
-  renderViewerImage();
+  renderViewerImage({ animate: true });
 }
 
 function previousViewerImage() {
   viewerIndex =
     (viewerIndex - 1 + viewerImages.length) % viewerImages.length;
 
-  viewerSource = null;
-  renderViewerImage();
+  renderViewerImage({ animate: true });
 }
 
 previousZone.addEventListener("click", previousViewerImage);
