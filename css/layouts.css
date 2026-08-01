@@ -68,7 +68,12 @@
 .crop-world-cup-headshot img {
   --scale: 2.9;
   --hover-scale: 2.94;
-  --position: 8% 0%;
+
+  /* Controls where the zoom expands from */
+  --origin: 0% 8%;
+
+  /* Keeps the original image aligned normally */
+  --position: 50% 50%;
 }
 
 .world-cup-second {
@@ -229,11 +234,13 @@
   .crop-world-cup-headshot img {
     --scale: 2.25;
     --hover-scale: 2.29;
-    --position:8% 0%;
+    --origin: 15% 8%;
+    --position: 50% 50%;
   }
 
   .world-cup-second .shot {
-    grid-column: 7 / span 5;
+    grid-column: 2 / span 10;
+    width: 100%;
   }
 
   .world-cup-pair .shot:first-child {

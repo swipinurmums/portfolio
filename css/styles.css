@@ -129,6 +129,7 @@ img {
   object-fit: cover;
   object-position: var(--position, 50% 50%);
   transform: scale(var(--scale, 1.01));
+  transform-origin: var(--origin, 50% 50%);
   transition: transform .9s var(--ease), opacity .25s ease;
 }
 
