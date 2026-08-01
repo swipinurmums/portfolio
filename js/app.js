@@ -109,6 +109,13 @@ function renderContact(contact) {
   const section = document.createElement("footer");
   section.className = "contact";
 
+const measurements = document.createElement("p");
+measurements.className = "contact__measurements";
+measurements.textContent =
+  "188CM · 94CM CHEST · 76CM WAIST · 90CM HIPS · BROWN HAIR · BROWN EYES · UK10 · 22";
+
+section.appendChild(measurements);
+
   const name = document.createElement("a");
   name.className = "contact__name";
   name.href = "#top";
@@ -116,13 +123,16 @@ function renderContact(contact) {
   name.setAttribute("aria-label", "Aron Belle — return to the beginning");
   section.appendChild(name);
 
+  const links = document.createElement("div");
+  links.className = "contact__links";
+
   if (contact.instagram) {
     const instagram = document.createElement("a");
     instagram.href = contact.instagram;
     instagram.target = "_blank";
     instagram.rel = "noreferrer";
     instagram.textContent = "Instagram";
-    section.appendChild(instagram);
+    links.appendChild(instagram);
   }
 
   if (contact.email) {
@@ -130,12 +140,13 @@ function renderContact(contact) {
     email.href = `mailto:${contact.email}`;
     email.textContent = "Email";
     email.setAttribute("aria-label", contact.email);
-    section.appendChild(email);
+    links.appendChild(email);
   }
+
+  section.appendChild(links);
 
   return section;
 }
-
 function initialiseRevealAnimations() {
   const items = document.querySelectorAll(".reveal");
 
