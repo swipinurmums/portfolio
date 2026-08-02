@@ -177,7 +177,7 @@ body.is-ready .hero-shot {
 .contact__measurements {
   width: 100%;
   max-width: 1400px;
-  margin: 0 0 clamp(32px, 9vw, 48px);
+  margin: 0;
   font-size: clamp(8px, 2.2vw, 11px);
   font-weight: 400;
   letter-spacing: .2em;
@@ -199,6 +199,15 @@ body.is-ready .hero-shot {
   justify-content: center;
   align-items: center;
   gap: 28px;
+}
+
+  .contact__location {
+  margin: 24px 0 0;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: .18em;
+  line-height: 1.8;
+  text-transform: uppercase;
 }
 
 .contact a {
@@ -395,12 +404,5 @@ body.is-ready .hero-shot {
   .contact__links {
     justify-content: center;
   }
-  .contact__location {
-  margin: 24px 0 0;
-  font-size: 9px;
-  font-weight: 400;
-  letter-spacing: .18em;
-  line-height: 1.8;
-  text-transform: uppercase;
-}
+
 }
