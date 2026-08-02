@@ -153,25 +153,26 @@ body.is-ready .hero-shot {
 }
 
 .contact {
-  min-height: 78svh;
+  min-height: 100svh;
   display: grid;
-  grid-template-rows: auto 1fr auto;
-  align-items: start;
+  grid-template-rows: auto minmax(0, 1fr) auto;
   padding:
-    clamp(45px, 12vw, 75px)
+    clamp(35px, 9vw, 60px)
     var(--edge)
-    max(54px, env(safe-area-inset-bottom));
+    max(20px, env(safe-area-inset-bottom));
   text-align: center;
 }
 
 .contact__signature {
-  align-self: center;
-  justify-self: center;
+  place-self: center;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 
-  transform: translateY(clamp(40px, 10vw, 80px));
+  /* Remove any old translateY rule */
+  transform: none;
 }
 
 .contact__measurements {
@@ -203,9 +204,12 @@ body.is-ready .hero-shot {
 
 .contact__location {
   align-self: end;
+  justify-self: center;
   margin: 0;
   font-size: 9px;
+  font-weight: 400;
   letter-spacing: .18em;
+  line-height: 1.8;
   text-transform: uppercase;
 }
 
