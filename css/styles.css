@@ -154,9 +154,9 @@ body.is-ready .hero-shot {
 
 .contact {
   min-height: 78svh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  align-items: start;
   padding:
     clamp(45px, 12vw, 75px)
     var(--edge)
@@ -165,14 +165,14 @@ body.is-ready .hero-shot {
 }
 
 .contact__signature {
-  margin-top: auto;
-  margin-bottom: auto;
+  align-self: center;
+  justify-self: center;
 
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
-
 
 .contact__measurements {
   width: 100%;
