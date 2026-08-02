@@ -116,12 +116,15 @@ function renderContact(contact) {
 
   section.appendChild(measurements);
 
+  // Signature block
+  const signature = document.createElement("div");
+  signature.className = "contact__signature";
+
   const name = document.createElement("a");
   name.className = "contact__name";
   name.href = "#top";
   name.textContent = "Aron Belle";
-  name.setAttribute("aria-label", "Aron Belle — return to the beginning");
-  section.appendChild(name);
+  signature.appendChild(name);
 
   const links = document.createElement("div");
   links.className = "contact__links";
@@ -139,14 +142,23 @@ function renderContact(contact) {
     const email = document.createElement("a");
     email.href = `mailto:${contact.email}`;
     email.textContent = "Email";
-    email.setAttribute("aria-label", contact.email);
     links.appendChild(email);
   }
 
-  section.appendChild(links);
+  signature.appendChild(links);
+
+  const location = document.createElement("p");
+  location.className = "contact__location";
+  location.textContent =
+    "BASED IN MANCHESTER · AVAILABLE WORLDWIDE";
+
+  signature.appendChild(location);
+
+  section.appendChild(signature);
 
   return section;
 }
+
 function initialiseRevealAnimations() {
   const items = document.querySelectorAll(".reveal");
 

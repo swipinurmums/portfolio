@@ -156,7 +156,6 @@ body.is-ready .hero-shot {
   min-height: 78svh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
   padding:
     clamp(45px, 12vw, 75px)
@@ -165,10 +164,20 @@ body.is-ready .hero-shot {
   text-align: center;
 }
 
+.contact__signature {
+  margin-top: auto;
+  margin-bottom: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
 .contact__measurements {
   width: 100%;
   max-width: 1400px;
-  margin: 0 0 clamp(52px, 14vw, 84px);
+  margin: 0 0 clamp(32px, 9vw, 48px);
   font-size: clamp(8px, 2.2vw, 11px);
   font-weight: 400;
   letter-spacing: .2em;
@@ -386,4 +395,12 @@ body.is-ready .hero-shot {
   .contact__links {
     justify-content: center;
   }
+  .contact__location {
+  margin: 24px 0 0;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: .18em;
+  line-height: 1.8;
+  text-transform: uppercase;
+}
 }
