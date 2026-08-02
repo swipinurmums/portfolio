@@ -150,7 +150,7 @@ function renderContact(contact) {
   const location = document.createElement("p");
   location.className = "contact__location";
   location.textContent =
-    "BASED IN MANCHESTER · AVAILABLE WORLDWIDE";
+    "BASED IN MANCHESTER, UK · AVAILABLE WORLDWIDE";
 
   signature.appendChild(location);
 

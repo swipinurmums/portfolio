@@ -155,7 +155,7 @@ body.is-ready .hero-shot {
 .contact {
   min-height: 78svh;
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto 1fr auto;
   align-items: start;
   padding:
     clamp(45px, 12vw, 75px)
@@ -165,13 +165,10 @@ body.is-ready .hero-shot {
 }
 
 .contact__signature {
-  align-self: center;
-  justify-self: center;
-
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  justify-content: center;
 }
 
 .contact__measurements {
@@ -201,12 +198,11 @@ body.is-ready .hero-shot {
   gap: 28px;
 }
 
-  .contact__location {
-  margin: 24px 0 0;
+.contact__location {
+  align-self: end;
+  margin: 0;
   font-size: 9px;
-  font-weight: 400;
   letter-spacing: .18em;
-  line-height: 1.8;
   text-transform: uppercase;
 }
 
