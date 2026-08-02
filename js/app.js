@@ -146,15 +146,14 @@ function renderContact(contact) {
   }
 
   signature.appendChild(links);
+  section.appendChild(signature);
 
   const location = document.createElement("p");
   location.className = "contact__location";
   location.textContent =
     "BASED IN MANCHESTER, UK · AVAILABLE WORLDWIDE";
 
-  signature.appendChild(location);
-
-  section.appendChild(signature);
+  section.appendChild(location);
 
   return section;
 }
