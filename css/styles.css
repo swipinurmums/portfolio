@@ -165,10 +165,13 @@ body.is-ready .hero-shot {
 }
 
 .contact__signature {
+  align-self: center;
+  justify-self: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+
+  transform: translateY(clamp(40px, 10vw, 80px));
 }
 
 .contact__measurements {
