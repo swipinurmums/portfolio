@@ -347,6 +347,28 @@
   margin-top: clamp(66px, 20vw, 110px);
 }
 
+/* Daniel 3 + 4: show the complete horizontal image on mobile */
+
+@media (max-width: 759px) {
+  .chapter--daniel1 .shoot-feature:nth-child(2) .shot,
+  .chapter--daniel1 .shoot-feature--closing .shot {
+    height: auto;
+    aspect-ratio: auto;
+    background: transparent;
+  }
+
+  .chapter--daniel1 .shoot-feature:nth-child(2) .shot img,
+  .chapter--daniel1 .shoot-feature--closing .shot img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transform: none;
+    display: block;
+  }
+}
+
+/* Desktop */
+
 @media (min-width: 760px) {
   .shoot-feature {
     max-width: 1500px;
@@ -374,37 +396,8 @@
   .billy2-closing .shot {
     grid-column: 2 / span 10;
   }
-}
 
-/* DANIEL 1 — show full horizontal images */
-
-.chapter--daniel1 .shoot-feature:nth-child(2) .shot img,
-.chapter--daniel1 .shoot-feature--closing .shot img {
-  object-fit: contain;
-  transform: none;
-}
-
-@media (min-width: 760px) {
-  /* Daniel 5 */
-  .chapter--daniel1 .shoot-feature:first-child .shot img {
-    object-position: 50% 0%;
-  }
-
-  /* Daniel 4 */
-  .chapter--daniel1 .shoot-feature--closing .shot img {
-    object-position: 50% 0%;
-  }
-}
-
-/* Daniel 3 + 4: show the complete horizontal image on mobile */
-.chapter--daniel1 .shoot-feature:nth-child(2) .shot img,
-.chapter--daniel1 .shoot-feature--closing .shot img {
-  object-fit: contain;
-  transform: none;
-}
-
-/* Desktop: return to the normal cropped presentation */
-@media (min-width: 760px) {
+  /* Daniel 3 + 4: normal desktop presentation */
   .chapter--daniel1 .shoot-feature:nth-child(2) .shot img,
   .chapter--daniel1 .shoot-feature--closing .shot img {
     object-fit: cover;
