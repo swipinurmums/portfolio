@@ -120,6 +120,9 @@ img {
   cursor: zoom-in;
   background: #d6d2ca;
   -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .shot img {
@@ -133,7 +136,12 @@ img {
     transform 1.15s var(--ease),
     opacity .3s ease;
   will-change: transform;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+
 }
+
 
 .shot:active img {
   transform: scale(var(--hover-scale, 1.035));

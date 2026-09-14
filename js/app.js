@@ -305,3 +305,8 @@ async function start() {
 }
 
 start();
+document.addEventListener("contextmenu", event => {
+  if (event.target.closest(".shot, .shot img")) {
+    event.preventDefault();
+  }
+});

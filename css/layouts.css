@@ -395,3 +395,25 @@
     object-position: 50% 0%;
   }
 }
+
+/* Daniel 3 + 4: show the complete horizontal image on mobile */
+.chapter--daniel1 .shoot-feature:nth-child(2) .shot img,
+.chapter--daniel1 .shoot-feature--closing .shot img {
+  object-fit: contain;
+  transform: none;
+}
+
+/* Desktop: return to the normal cropped presentation */
+@media (min-width: 760px) {
+  .chapter--daniel1 .shoot-feature:nth-child(2) .shot img,
+  .chapter--daniel1 .shoot-feature--closing .shot img {
+    object-fit: cover;
+    transform: scale(var(--scale, 1.01));
+  }
+
+  /* Move Dan5 + Dan4 crop to the very top */
+  .chapter--daniel1 .shoot-feature:first-child .shot img,
+  .chapter--daniel1 .shoot-feature--closing .shot img {
+    object-position: 50% 0%;
+  }
+}
