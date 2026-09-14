@@ -318,8 +318,3 @@ document.addEventListener("dragstart", event => {
   }
 });
 
-document.addEventListener("touchstart", event => {
-  if (event.target.closest(".shot, .shot img")) {
-    event.preventDefault();
-  }
-}, { passive: false });
