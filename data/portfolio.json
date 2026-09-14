@@ -5,6 +5,54 @@
   },
   "sections": [
     {
+      "id": "billy2",
+      "type": "billy2",
+      "images": [
+        {
+          "src": "images/billy2/billy2-1.webp",
+          "alt": "Editorial fashion portrait"
+        },
+        {
+          "src": "images/billy2/billy2-2.webp",
+          "alt": "Editorial accessory photograph"
+        },
+        {
+          "src": "images/billy2/billyjulie1.webp",
+          "alt": "Editorial fashion photograph"
+        },
+        {
+          "src": "images/billy2/billy2-3.webp",
+          "alt": "Editorial profile portrait"
+        }
+      ]
+    },
+    {
+      "id": "daniel1",
+      "type": "daniel1",
+      "images": [
+        {
+          "src": "images/daniel1/dan5.webp",
+          "alt": "Editorial fashion portrait"
+        },
+        {
+          "src": "images/daniel1/dan3.webp",
+          "alt": "Editorial fashion portrait"
+        },
+        {
+          "src": "images/daniel1/dan1.webp",
+          "alt": "Editorial fashion photograph"
+        },
+        {
+          "src": "images/daniel1/dan2.webp",
+          "alt": "Editorial fashion photograph"
+        },
+        {
+          "src": "images/daniel1/dan4.webp",
+          "alt": "Editorial fashion portrait"
+        }
+      ]
+    },
+    {
       "id": "runway",
       "type": "runway",
       "images": [
@@ -105,20 +153,6 @@
           "src": "images/timmy/timmy-02.webp",
           "alt": "City location portrait",
           "position": "50% 0%"
-        }
-      ]
-    },
-    {
-      "id": "tux",
-      "type": "tux",
-      "images": [
-        {
-          "src": "images/tux/tux-01.webp",
-          "alt": "Formal tuxedo portrait"
-        },
-        {
-          "src": "images/tux/tux-02.webp",
-          "alt": "Formal fashion portrait"
         }
       ]
     },

@@ -83,6 +83,52 @@ function renderWorldCup(section) {
   return chapterNode;
 }
 
+function renderBilly2(section) {
+  const [hero, accessory, julie, finalProfile] = section.images;
+  const chapterNode = chapter("chapter--billy2");
+
+  const heroWrap = document.createElement("div");
+  heroWrap.className = "shoot-feature";
+  heroWrap.appendChild(createShot(hero));
+  chapterNode.appendChild(heroWrap);
+
+  chapterNode.appendChild(
+    grid("billy2-pair", [accessory, julie])
+  );
+
+  chapterNode.appendChild(
+    grid("billy2-closing", [finalProfile])
+  );
+
+  return chapterNode;
+}
+
+function renderDaniel1(section) {
+  const [hero, secondLarge, smallLeft, smallRight, closing] = section.images;
+  const chapterNode = chapter("chapter--daniel1");
+
+  const heroWrap = document.createElement("div");
+  heroWrap.className = "shoot-feature";
+  heroWrap.appendChild(createShot(hero));
+  chapterNode.appendChild(heroWrap);
+
+  const secondWrap = document.createElement("div");
+  secondWrap.className = "shoot-feature";
+  secondWrap.appendChild(createShot(secondLarge));
+  chapterNode.appendChild(secondWrap);
+
+  chapterNode.appendChild(
+    grid("daniel1-pair", [smallLeft, smallRight])
+  );
+
+  const closingWrap = document.createElement("div");
+  closingWrap.className = "shoot-feature shoot-feature--closing";
+  closingWrap.appendChild(createShot(closing));
+  chapterNode.appendChild(closingWrap);
+
+  return chapterNode;
+}
+
 function renderEsmee(section) {
   const [feature, fullLength, closePortrait, closingLeft, closingRight] = section.images;
   const chapterNode = chapter("chapter--esmee");
@@ -225,12 +271,15 @@ async function start() {
     allImages = [];
 
     data.sections.forEach(section => {
+      if (section.type === "billy2") feed.appendChild(renderBilly2(section));
+      if (section.type === "daniel1") feed.appendChild(renderDaniel1(section));
       if (section.type === "runway") feed.appendChild(renderRunway(section));
       if (section.type === "world-cup") feed.appendChild(renderWorldCup(section));
       if (section.type === "esmee") feed.appendChild(renderEsmee(section));
       if (section.type === "timmy") feed.appendChild(renderPair(section, "timmy-grid"));
       if (section.type === "tux") feed.appendChild(renderPair(section, "tux-grid"));
       if (section.type === "digis") feed.appendChild(renderPair(section, "digis-grid"));
+
     });
 
     feed.appendChild(renderContact(data.contact));

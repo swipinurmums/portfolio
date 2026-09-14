@@ -232,8 +232,8 @@
   }
 
   .crop-world-cup-headshot img {
-    --scale: 2.25;
-    --hover-scale: 2.29;
+    --scale: 2.9;
+    --hover-scale: 2.94;
     --origin: 16% 8%;
     --position: 50% 50%;
   }
@@ -288,5 +288,90 @@
 
   .digis-grid .shot:last-child {
     grid-column: 7 / span 5;
+  }
+}
+
+/* NEW SHOOTS */
+
+.shoot-feature {
+  padding: var(--edge);
+}
+
+.shoot-feature .shot {
+  height: calc(100svh - (var(--edge) * 2));
+  min-height: 560px;
+}
+
+/* BILLY 2 */
+
+.billy2-pair {
+  margin-top: clamp(58px, 17vw, 96px);
+}
+
+.billy2-pair .shot {
+  grid-column: span 6;
+  aspect-ratio: 3 / 4;
+}
+
+.billy2-pair .shot:last-child {
+  margin-top: 12vw;
+}
+
+.billy2-closing {
+  margin-top: clamp(66px, 20vw, 110px);
+}
+
+.billy2-closing .shot {
+  grid-column: 1 / -1;
+  aspect-ratio: 3 / 4;
+}
+
+/* DANIEL 1 */
+
+.daniel1-pair {
+  margin-top: clamp(58px, 17vw, 96px);
+}
+
+.daniel1-pair .shot {
+  grid-column: span 6;
+  aspect-ratio: 3 / 4;
+}
+
+/* Keep Daniel's two smaller images level */
+
+.daniel1-pair .shot:last-child {
+  margin-top: 0;
+}
+
+.shoot-feature--closing {
+  margin-top: clamp(66px, 20vw, 110px);
+}
+
+@media (min-width: 760px) {
+  .shoot-feature {
+    max-width: 1500px;
+    margin-inline: auto;
+  }
+
+  .shoot-feature .shot {
+    height: calc(100vh - (var(--edge) * 2));
+  }
+
+  .billy2-pair .shot:first-child,
+  .daniel1-pair .shot:first-child {
+    grid-column: 2 / span 5;
+  }
+
+  .billy2-pair .shot:last-child,
+  .daniel1-pair .shot:last-child {
+    grid-column: 7 / span 5;
+  }
+
+  .billy2-pair .shot:last-child {
+    margin-top: 7vw;
+  }
+
+  .billy2-closing .shot {
+    grid-column: 2 / span 10;
   }
 }
