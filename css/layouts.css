@@ -235,7 +235,7 @@
     --scale: 2.9;
     --hover-scale: 2.94;
     --origin: 16% 8%;
-    --position: 50% 50%;
+    --position: 50% 50%; 
   }
 
   .world-cup-second .shot {
@@ -373,5 +373,25 @@
 
   .billy2-closing .shot {
     grid-column: 2 / span 10;
+  }
+}
+
+/* DANIEL 1 — show full horizontal images */
+
+.chapter--daniel1 .shoot-feature:nth-child(2) .shot img,
+.chapter--daniel1 .shoot-feature--closing .shot img {
+  object-fit: contain;
+  transform: none;
+}
+
+@media (min-width: 760px) {
+  /* Daniel 5 */
+  .chapter--daniel1 .shoot-feature:first-child .shot img {
+    object-position: 50% 0%;
+  }
+
+  /* Daniel 4 */
+  .chapter--daniel1 .shoot-feature--closing .shot img {
+    object-position: 50% 0%;
   }
 }
